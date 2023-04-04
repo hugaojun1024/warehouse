@@ -2,14 +2,16 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import HomeView from '../views/HomeView.vue'
 import LoginUser from '../components/LoginUser.vue'
+import Home from '../components/Home'
+import CarouselView from '../components/CarouselView'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: LoginUser
+    name: 'HomeVue',
+    component: Home
   },
   {
     path: '/about',
@@ -22,6 +24,10 @@ const routes = [
   {
     path: '/loginUser',
     component: LoginUser
+  },
+  {
+    path: '/carouselview',
+    component: CarouselView
   }
 ]
 

@@ -1,10 +1,31 @@
 {
-  "id": "3980090",
-  "name": "第一个VueElement项目",
+  "id": "3996220",
+  "name": "nanchangMetro",
   "font_family": "iconfont",
   "css_prefix_text": "icon-",
   "description": "",
   "glyphs": [
+    {
+      "icon_id": "201228",
+      "name": "3.1我的",
+      "font_class": "31wode",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "1305337",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "2675011",
+      "name": "消息",
+      "font_class": "xiaoxi",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
     {
       "icon_id": "1304896",
       "name": "用户",
