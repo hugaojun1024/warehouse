@@ -103,6 +103,7 @@ export default {
     }
     > span {
       text-align: center;
+      margin: 5px;
     }
   }
   .footer {

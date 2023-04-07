@@ -11,7 +11,9 @@ import {
   Main,
   Carousel,
   Image,
-  CarouselItem
+  CarouselItem,
+  Table,
+  TableColumn
 } from 'element-ui'
 
 Vue.use(Button)
@@ -26,3 +28,5 @@ Vue.use(Main)
 Vue.use(Carousel)
 Vue.use(Image)
 Vue.use(CarouselItem)
+Vue.use(Table)
+Vue.use(TableColumn)

@@ -4,6 +4,9 @@ import VueRouter from 'vue-router'
 import LoginUser from '../components/LoginUser.vue'
 import Home from '../components/Home'
 import CarouselView from '../components/CarouselView'
+import InventoryWarning from '../components/InventoryWarning'
+import HeaderComp from '../components/HeaderComp'
+import MessageMenu from '../components/MessageMenu'
 
 Vue.use(VueRouter)
 
@@ -28,6 +31,18 @@ const routes = [
   {
     path: '/carouselview',
     component: CarouselView
+  },
+  {
+    path: '/inventoryWarning',
+    component: InventoryWarning
+  },
+  {
+    path: '/headerComp',
+    component: HeaderComp
+  },
+  {
+    path: '/messageMenu',
+    component: MessageMenu
   }
 ]
 
