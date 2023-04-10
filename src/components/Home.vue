@@ -35,27 +35,20 @@
     </el-main>
     <!--底部区域-->
     <el-footer>
-      <div class="footer">
-        <div class="footer-xx">
-          <ul>
-            <li class="iconfont icon-shouye"><span>首页</span>
-            </li>
-            <li class="iconfont icon-xiaoxi"><span>消息</span>
-            </li>
-            <li class="iconfont icon-31wode"><span>我的</span>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <NavigatorBar></NavigatorBar>
     </el-footer>
   </el-container>
 </template>
 
 <script>
 import Carousel from '@/components/CarouselView'
+import NavigatorBar from "@/components/NavigatorBar.vue";
 export default {
   name: 'HomeVue',
-  components: { Carousel }
+  components: {
+    Carousel,
+    NavigatorBar
+  }
 }
 </script>
 
