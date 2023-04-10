@@ -10,44 +10,41 @@ import MessageMenu from '../components/MessageMenu'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
-    name: 'HomeVue',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  },
-  {
-    path: '/loginUser',
-    component: LoginUser
-  },
-  {
-    path: '/carouselview',
-    component: CarouselView
-  },
-  {
-    path: '/inventoryWarning',
-    component: InventoryWarning
-  },
-  {
-    path: '/headerComp',
-    component: HeaderComp
-  },
-  {
-    path: '/messageMenu',
-    component: MessageMenu
-  }
-]
-
-const router = new VueRouter({
-  routes
+export default new VueRouter({
+  mode: 'history',
+  routes: [
+    {
+      path: '/',
+      name: 'HomeVue',
+      component: Home
+    },
+    {
+      path: '/about',
+      name: 'about',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    },
+    {
+      path: '/loginUser',
+      component: LoginUser
+    },
+    {
+      path: '/carouselview',
+      component: CarouselView
+    },
+    {
+      path: '/inventoryWarning',
+      component: InventoryWarning
+    },
+    {
+      path: '/headerComp',
+      component: HeaderComp
+    },
+    {
+      path: '/messageMenu',
+      component: MessageMenu
+    }
+  ]
 })
-
-export default router
