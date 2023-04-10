@@ -22,18 +22,16 @@ export default {
 <style scoped>
   .footer {
     height: 60px;
-    border: 1px;
     background-color: #ff0000;
   }
   .footer-xx {
-    margin-top: 2px;
     background-color: #2b4b6b;
   }
   .footer-xx ul li{
     float: left;
     width: 50px;
     height: 50px;
-  //background-color: #42b983;
+    /*background-color: #42b983;*/
     margin-right: 74px;
     margin-bottom: 15px;
     margin-top: 5px;
