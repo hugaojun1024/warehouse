@@ -2,12 +2,15 @@
   <div class="footer">
     <div class="footer-xx">
       <ul>
-        <li class="iconfont icon-shouye"><span>首页</span>
-        </li>
-        <li class="iconfont icon-xiaoxi"><span>消息</span>
-        </li>
-        <li class="iconfont icon-31wode"><span>我的</span>
-        </li>
+        <a href="#">
+          <li class="iconfont icon-shouye"><span>首页</span></li>
+        </a>
+        <a href="/message">
+          <li class="iconfont icon-xiaoxi"><span>消息</span></li>
+        </a>
+        <a href="/loginUser">
+          <li class="iconfont icon-31wode"><span>我的</span></li>
+        </a>
       </ul>
     </div>
   </div>
