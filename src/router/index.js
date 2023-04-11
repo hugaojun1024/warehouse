@@ -7,7 +7,7 @@ import CarouselView from '../components/CarouselView'
 import InventoryWarning from '../components/InventoryWarning'
 import HeaderComp from '../components/HeaderComp'
 import MessageMenu from '../components/MessageMenu'
-
+import SuggestionsOffer from '../components/SuggestionsOffer'
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -45,6 +45,10 @@ export default new VueRouter({
     {
       path: '/messageMenu',
       component: MessageMenu
+    },
+    {
+      path: '/suggestionsOffer',
+      component: SuggestionsOffer
     }
   ]
 })

@@ -3,6 +3,7 @@ import {
   Button,
   Form,
   FormItem,
+  Checkbox,
   Input,
   Message,
   Container,
@@ -13,7 +14,8 @@ import {
   Image,
   CarouselItem,
   Table,
-  TableColumn
+  TableColumn,
+  Upload
 } from 'element-ui'
 
 Vue.use(Button)
@@ -30,3 +32,5 @@ Vue.use(Image)
 Vue.use(CarouselItem)
 Vue.use(Table)
 Vue.use(TableColumn)
+Vue.use(Checkbox)
+Vue.use(Upload)
