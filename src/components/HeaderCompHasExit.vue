@@ -1,49 +1,55 @@
 <template>
-  <el-container class="home-container">
-    <el-header>
-<!--      <li class="iconfont icon-tuichu"></li>-->
-      <div>
-        <img src="../assets/erweima_logo1.png" alt="" height="50">
-        <span>资产全链条管理平台</span>
-      </div>
-    </el-header>
-  </el-container>
+  <div class="HeaderComp">
+    <span class="iconfont icon-tuichu" @click="exitBtn(Urlto)"></span>
+    <div class="content">
+      <img src="../assets/erweima_logo1.png" alt="" height="50">
+      <span class="title-text">资产全链条管理平台</span>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'HeaderComp'
+  name: 'HeaderComp',
+  props:['url'],
+  data(){
+    return{
+      Urlto:this.url
+    }
+  },
+  methods:{
+    exitBtn(url){
+      this.$router.push(url)
+    }
+  }
 }
 </script>
 
 <style lang="less" scoped>
-  .home-container {
-    height: 100%;
+  .HeaderComp{
+    height: 60px;
+    width: 100%;
+    background-color: #DB0039;
   }
-.el-header {
-  background-color: #DB0039;
-  display: flex;
-  justify-content: center;
-  //align-items: center;
-  color: #ffffff;
-  font-size: 20px;
-  > div {
-    display: flex;
-    align-items: center;
-    span {
-      margin-left: 15px;
-    }
+  .content{
+    width: 60%;
+    margin:0 auto;
+    padding-top: 5px;
   }
-  > li {
-      background-color: #42b983;
-      float: left;
-      display: flex;
-      list-style: none;
-      width: 30px;
-      height: 20px;
-      margin-right: 12px;
-      font-size: 20px;
-      align-items: center;
-    }
-}
+  .content img{
+    float: left;
+    margin-right: 10px;
+  }
+  .content .title-text {
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 50px;
+  }
+  .iconfont{
+    color: #ffffff;
+    font-size: 24px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+  }
 </style>

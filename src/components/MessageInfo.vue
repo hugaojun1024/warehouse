@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header">
-      <HeaderComp></HeaderComp>
+      <HeaderCompHasExit :url="'/message'"></HeaderCompHasExit>
     </div>
     <div class="content">
       <div class="message-title">
@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import HeaderComp from "@/components/HeaderComp.vue";
+import HeaderCompHasExit from "@/components/HeaderCompHasExit.vue";
 import axios from "axios";
 export default {
   name: "MessageInfo",
   components:{
-    HeaderComp
+    HeaderCompHasExit
   },
   data(){
     return {
