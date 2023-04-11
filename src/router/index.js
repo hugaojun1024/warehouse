@@ -10,6 +10,8 @@ import MessageMenu from '../components/MessageMenu'
 import SuggestionsOffer from '../components/SuggestionsOffer'
 import Message from '../components/Message.vue'
 import MessageInfo from '../components/MessageInfo.vue'
+import HeaderCompHasExit from '../components/HeaderCompHasExit'
+import StockInquiry from '../components/StockInquiry'
 
 Vue.use(VueRouter)
 
@@ -60,6 +62,14 @@ export default new VueRouter({
     {
       path: '/message_info',
       component: MessageInfo
+    },
+    {
+      path: '/headerCompExit',
+      component: HeaderCompHasExit
+    },
+    {
+      path: '/stockInquiry',
+      component: StockInquiry
     }
   ]
 })

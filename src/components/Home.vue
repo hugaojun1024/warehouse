@@ -13,22 +13,30 @@
       <div class="box">
         <div class="box-bd">
           <ul>
-            <li style="background-image: linear-gradient(#7EC7F6,#4780EC);">
-              <img src="../assets/库存查询.png">
-              <span>库存信息查询</span>
-            </li>
-            <li style="background-image: linear-gradient(#7FE6E6,#50968B)">
-              <img src="../assets/预警提醒.png">
-              <span>库存预警提醒</span>
-            </li>
-            <li style="background-image: linear-gradient(#EA4826,#F09837)">
-              <img src="../assets/扫码.png">
-              <span>扫描资产码</span>
-            </li>
-            <li style="background-image: linear-gradient(#DE868F,#BD3124)">
-              <img src="../assets/意见反馈.png">
-              <span>建言献策</span>
-            </li>
+            <a href="/stockInquiry">
+              <li style="background-image: linear-gradient(#7EC7F6,#4780EC);">
+                <img src="../assets/库存查询.png">
+                <span>库存信息查询</span>
+              </li>
+            </a>
+            <a href="/inventoryWarning">
+              <li style="background-image: linear-gradient(#7FE6E6,#50968B)">
+                <img src="../assets/预警提醒.png">
+                <span>库存预警提醒</span>
+              </li>
+            </a>
+            <a href="#">
+              <li style="background-image: linear-gradient(#EA4826,#F09837)">
+                <img src="../assets/扫码.png">
+                <span>扫描资产码</span>
+              </li>
+            </a>
+            <a href="/suggestionsOffer">
+              <li style="background-image: linear-gradient(#DE868F,#BD3124)">
+                <img src="../assets/意见反馈.png">
+                <span>建言献策</span>
+              </li>
+            </a>
           </ul>
         </div>
       </div>
@@ -75,8 +83,12 @@ export default {
     margin-top: 30px;
     width: 414px;
   }
+  .box-bd {
+    text-align: center;
+  }
   .box-bd ul {
     width: 380px;
+    display: inline-block;
   }
   .box-bd ul li {
     float: left;

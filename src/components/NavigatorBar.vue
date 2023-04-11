@@ -18,23 +18,28 @@
 
 <script>
 export default {
-  name: "NavigatorBar"
+    name: "NavigatorBar"
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
   .footer {
     height: 60px;
     background-color: #ff0000;
   }
   .footer-xx {
-    background-color: #2b4b6b;
+    //background-color: #2b4b6b;
+    text-align: center;
+  }
+  .footer-xx ul {
+    display: inline-block;
   }
   .footer-xx ul li{
     float: left;
     width: 50px;
     height: 50px;
     /*background-color: #42b983;*/
+    margin-right: 10px;
     margin-right: 74px;
     margin-bottom: 15px;
     margin-top: 5px;

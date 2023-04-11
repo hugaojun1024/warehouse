@@ -1,59 +1,68 @@
 <template>
-  <div class="suggest">
-    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-      <el-form-item label="反馈人" prop="name">
-        <el-input v-model="ruleForm.name"></el-input>
-      </el-form-item>
-      <el-form-item label="所在部门（中心）" prop="department">
-        <el-input v-model="ruleForm.department"></el-input>
-      </el-form-item>
-      <el-form-item label="联系电话" prop="phone">
-        <el-input v-model="ruleForm.phone"></el-input>
-      </el-form-item>
-      <el-form-item label="问题类型" prop="type">
-        <el-checkbox-group v-model="ruleForm.type">
-          <el-checkbox label="物资编码" name="type"></el-checkbox>
-          <el-checkbox label="物资申购" name="type"></el-checkbox>
-          <el-checkbox label="物资报废" name="type"></el-checkbox>
-          <el-checkbox label="物资验收" name="type"></el-checkbox>
-          <el-checkbox label="物资调拨" name="type"></el-checkbox>
-          <el-checkbox label="物资质量" name="type"></el-checkbox>
-          <el-checkbox label="物资维修" name="type"></el-checkbox>
-          <el-checkbox label="物资台账" name="type"></el-checkbox>
-          <el-checkbox label="物资盘点" name="type"></el-checkbox>
-          <el-checkbox label="其他" name="type"></el-checkbox>
-        </el-checkbox-group>
-      </el-form-item>
-      <el-form-item label="问题描述" prop="desc">
-        <el-input type="textarea" v-model="ruleForm.desc"></el-input>
-      </el-form-item>
-      <el-form-item label="意见建议" prop="suggest">
-        <el-input type="textarea" v-model="ruleForm.suggest"></el-input>
-      </el-form-item>
-      <el-form-item label="补充说明" prop="explain">
-        <el-input type="textarea" v-model="ruleForm.explain"></el-input>
-      </el-form-item>
-      <h5>附图</h5>
-      <el-upload
-        class="upload-demo"
-        drag
-        action="https://jsonplaceholder.typicode.com/posts/"
-        multiple>
-        <i class="el-icon-upload"></i>
-        <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-        <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>
-      </el-upload>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
-        <el-button @click="resetForm('ruleForm')">重置</el-button>
-      </el-form-item>
-    </el-form>
+  <div>
+    <div class="header">
+      <HeaderComp></HeaderComp>
+    </div>
+    <div class="suggest">
+      <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+        <el-form-item label="反馈人" prop="name">
+          <el-input v-model="ruleForm.name"></el-input>
+        </el-form-item>
+        <el-form-item label="所在部门（中心）" prop="department">
+          <el-input v-model="ruleForm.department"></el-input>
+        </el-form-item>
+        <el-form-item label="联系电话" prop="phone">
+          <el-input v-model="ruleForm.phone"></el-input>
+        </el-form-item>
+        <el-form-item label="问题类型" prop="type">
+          <el-checkbox-group v-model="ruleForm.type">
+            <el-checkbox label="物资编码" name="type"></el-checkbox>
+            <el-checkbox label="物资申购" name="type"></el-checkbox>
+            <el-checkbox label="物资报废" name="type"></el-checkbox>
+            <el-checkbox label="物资验收" name="type"></el-checkbox>
+            <el-checkbox label="物资调拨" name="type"></el-checkbox>
+            <el-checkbox label="物资质量" name="type"></el-checkbox>
+            <el-checkbox label="物资维修" name="type"></el-checkbox>
+            <el-checkbox label="物资台账" name="type"></el-checkbox>
+            <el-checkbox label="物资盘点" name="type"></el-checkbox>
+            <el-checkbox label="其他" name="type"></el-checkbox>
+          </el-checkbox-group>
+        </el-form-item>
+        <el-form-item label="问题描述" prop="desc">
+          <el-input type="textarea" v-model="ruleForm.desc"></el-input>
+        </el-form-item>
+        <el-form-item label="意见建议" prop="suggest">
+          <el-input type="textarea" v-model="ruleForm.suggest"></el-input>
+        </el-form-item>
+        <el-form-item label="补充说明" prop="explain">
+          <el-input type="textarea" v-model="ruleForm.explain"></el-input>
+        </el-form-item>
+<!--        <h5>附图</h5>-->
+<!--        <el-upload-->
+<!--          class="upload-demo"-->
+<!--          drag-->
+<!--          action="https://jsonplaceholder.typicode.com/posts/"-->
+<!--          multiple>-->
+<!--          <i class="el-icon-upload"></i>-->
+<!--          <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>-->
+<!--          <div class="el-upload__tip" slot="tip">只能上传jpg/png文件，且不超过500kb</div>-->
+<!--        </el-upload>-->
+        <el-form-item>
+          <el-button type="primary" @click="submitForm('ruleForm')" style="margin: 16px 15px 16px 16px">提交</el-button>
+          <el-button @click="resetForm('ruleForm')">重置</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
   </div>
 </template>
 
 <script>
+import HeaderComp from '@/components/HeaderComp'
 export default {
   name: 'SuggestionsOffer',
+  components: {
+    HeaderComp
+  },
   data () {
     return {
       ruleForm: {
@@ -110,7 +119,9 @@ export default {
 
 <style lang="less" scoped>
   .suggest {
-    padding: 20px 20px 20px 20px;
+    //background-color: #42b983;
+    //padding: 20px 20px 20px 20px;
+    margin: 20px 20px 20px 8px;
   }
   .el-form-item_content {
     line-height: 24px;

@@ -8,7 +8,7 @@
         <el-input v-model="input" placeholder="请输入内容" suffix-icon="iconfont icon-sousuo"></el-input>
         <el-button>搜索</el-button>
       </div>
-      <TableForWuzi></TableForWuzi>
+      <TableForWuzi2></TableForWuzi2>
     </el-main>
     <el-footer>
     </el-footer>
@@ -17,10 +17,10 @@
 
 <script>
 import HeaderComp from '@/components/HeaderComp'
-import TableForWuzi from '@/components/TableForWuzi'
+import TableForWuzi2 from '@/components/TableForWuzi2'
 export default {
   name: 'inventoryWarning',
-  components: { HeaderComp, TableForWuzi }
+  components: { HeaderComp, TableForWuzi2 }
 }
 </script>
 
