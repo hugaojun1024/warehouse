@@ -8,6 +8,9 @@ import InventoryWarning from '../components/InventoryWarning'
 import HeaderComp from '../components/HeaderComp'
 import MessageMenu from '../components/MessageMenu'
 import SuggestionsOffer from '../components/SuggestionsOffer'
+import Message from '../components/Message.vue'
+import MessageInfo from '../components/MessageInfo.vue'
+
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -49,6 +52,14 @@ export default new VueRouter({
     {
       path: '/suggestionsOffer',
       component: SuggestionsOffer
+    },
+    {
+      path: '/message',
+      component: Message
+    },
+    {
+      path: '/message_info',
+      component: MessageInfo
     }
   ]
 })
