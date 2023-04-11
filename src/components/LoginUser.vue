@@ -9,7 +9,7 @@
        <div class="avatar_box">
          <img src="../assets/erweima_logo1.png" alt="">
        </div>
-       <!--登录表单区域-->
+       <!-- 登录表单区域 -->
        <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules" label-width="0px" class="login_form">
          <!--用户名-->
          <el-form-item prop="username">
@@ -27,7 +27,7 @@
        </el-form>
      </div>
    </div>
-   <div>
+   <div class="footer">
      <NavigatorBar></NavigatorBar>
    </div>
  </div>
@@ -35,7 +35,7 @@
 
 <script>
 import NavigatorBar from "@/components/NavigatorBar";
-import HeaderComp from '@/components/HeaderComp'
+import HeaderComp from '@/components/HeaderComp';
 export default {
   name: 'loginUser',
   components: {
@@ -71,14 +71,20 @@ export default {
       this.$refs.loginFormRef.resetFields()
     },
     login () {
-      this.$refs.loginFormRef.validate(async valid => {
+      /*this.$refs.loginFormRef.validate(async valid => {
         // console.log(valid)
         if (!valid) return
         const { data: res } = await this.$http.post('login', this.loginForm)
         // console.log(result)
         if (res.meta.status !== 200) return console.log('登陆失败')
         console.log('登录成功')
-      })
+      })*/
+      if (this.loginForm.username == 'admin' && this.loginForm.password == '123456'){
+        this.$router.push("/user_profile")
+      }
+      else{
+        this.$message.error("用户名或密码错误")
+      }
     }
   }
 }
@@ -129,5 +135,11 @@ export default {
   .btns {
     display: flex;
     justify-content: flex-end;
+  }
+  .footer{
+    width: 100%;
+    position: fixed;
+    top: calc(100vh - 60px);
+    left: 0px;
   }
 </style>

@@ -34,3 +34,4 @@ Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Checkbox)
 Vue.use(Upload)
+
