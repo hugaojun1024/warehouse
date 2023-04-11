@@ -39,8 +39,7 @@ export default {
     width: 50px;
     height: 50px;
     /*background-color: #42b983;*/
-    margin-right: 10px;
-    margin-right: 74px;
+    margin-right: 67px;
     margin-bottom: 15px;
     margin-top: 5px;
     display: flex;

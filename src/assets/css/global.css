@@ -15,3 +15,22 @@ a {
     text-decoration: none;
     color: #000;
 }
+.redBtn{
+    width: 80%;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #DB0039;
+    font-size: 16px;
+    font-weight: bolder;
+    color: #ffffff;
+}
+.greyBtn{
+    width: 80%;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #666666;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bolder;
+    color: #ffffff;
+}

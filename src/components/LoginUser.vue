@@ -10,7 +10,7 @@
          <img src="../assets/erweima_logo1.png" alt="">
        </div>
        <!-- 登录表单区域 -->
-       <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules" label-width="0px" class="login_form">
+       <el-form style="text-align: center;width: 90%; margin-left: 20px" ref="loginFormRef" :model="loginForm" :rules="loginFormRules" label-width="0px" class="login_form">
          <!--用户名-->
          <el-form-item prop="username">
            <el-input v-model="loginForm.username" prefix-icon="iconfont icon-yonghu"></el-input>
@@ -20,10 +20,8 @@
            <el-input v-model="loginForm.password" prefix-icon="iconfont icon-mima" type="password"></el-input>
          </el-form-item>
          <!--按钮区域-->
-         <el-form-item class="btns">
-           <el-button type="primary" @click="login">登录</el-button>
-           <el-button type="info" @click="resetLoginForm">重置</el-button>
-         </el-form-item>
+         <button @click="login" class="redBtn">登陆</button>
+         <button @click="resetLoginForm" class="greyBtn">重置</button>
        </el-form>
      </div>
    </div>
@@ -46,7 +44,7 @@ export default {
     return {
       // 这是登录表单的数据绑定对象
       loginForm: {
-        username: 'hugaojun',
+        username: 'admin',
         password: '123456'
       },
       // 这是表单验证规则对象
@@ -141,5 +139,6 @@ export default {
     position: fixed;
     top: calc(100vh - 60px);
     left: 0px;
+    text-align: center;
   }
 </style>

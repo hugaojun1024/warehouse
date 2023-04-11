@@ -4,9 +4,12 @@
       <HeaderComp></HeaderComp>
     </div>
     <div class="content">
-      <div class="avatar">
-        <img src="../assets/avatar.png" alt="avatar" width="200">
-      </div>
+      <img class="avatar" src="../assets/avatar.png" alt="avatar" width="200">
+      <p class="username">李明浩</p>
+      <button class="button-option first">联系我们</button>
+      <button class="button-option">反馈建议</button>
+      <button class="button-option">关于软件</button>
+      <button class="redBtn" @click="logout()">退出登陆</button>
     </div>
     <div class="footer">
       <NavigatorBar></NavigatorBar>
@@ -25,6 +28,11 @@ export default {
     HeaderCompHasExit,
     HeaderComp,
     NavigatorBar
+  },
+  methods:{
+    logout(){
+      this.$router.push("/loginUser")
+    }
   }
 }
 </script>
@@ -37,11 +45,27 @@ export default {
   .content{
     width: 100%;
     height: calc(100vh - 120px);
-    background-color: #42b983;
     text-align: center;
   }
   .footer{
     height: 60px;
     width: 100%;
+  }
+  .content .avatar{
+    border-radius: 100px;
+    margin-top: 66px;
+  }
+  .content .username{
+    font-size: 22px;
+    margin: 30px auto;
+  }
+  .button-option{
+    width: 100%;
+    height: 50px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #999;
+  }
+  .first{
+    border-top: 1px solid #999;
   }
 </style>
