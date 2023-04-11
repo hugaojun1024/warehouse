@@ -2,7 +2,7 @@
   <div class="footer">
     <div class="footer-xx">
       <ul>
-        <a href="#">
+        <a href="/">
           <li class="iconfont icon-shouye"><span>首页</span></li>
         </a>
         <a href="/message">
