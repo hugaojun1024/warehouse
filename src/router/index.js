@@ -9,6 +9,7 @@ import HeaderComp from '../components/HeaderComp'
 import MessageMenu from '../components/MessageMenu'
 import SuggestionsOffer from '../components/SuggestionsOffer'
 import Message from '../components/Message.vue'
+import UserProfile from "@/components/UserProfile.vue";
 import MessageInfo from '../components/MessageInfo.vue'
 import HeaderCompHasExit from '../components/HeaderCompHasExit'
 import StockInquiry from '../components/StockInquiry'
@@ -52,10 +53,6 @@ export default new VueRouter({
       component: MessageMenu
     },
     {
-      path: '/suggestionsOffer',
-      component: SuggestionsOffer
-    },
-    {
       path: '/message',
       component: Message
     },
@@ -64,12 +61,20 @@ export default new VueRouter({
       component: MessageInfo
     },
     {
-      path: '/headerCompExit',
+      path: '/user_profile',
+      component: UserProfile
+    },
+    {
+      path: '/headerCompHasExit',
       component: HeaderCompHasExit
     },
     {
       path: '/stockInquiry',
       component: StockInquiry
+    },
+    {
+      path: '/suggestionsOffer',
+      component: SuggestionsOffer
     }
   ]
 })
