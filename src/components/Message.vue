@@ -22,7 +22,6 @@
     <div class="footer">
       <NavigatorBar></NavigatorBar>
     </div>
-
   </div>
 </template>
 
@@ -72,7 +71,6 @@ export default {
 }
 .content{
   width: 100%;
-
 }
 .footer{
   width: 100%;

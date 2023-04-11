@@ -1,32 +1,47 @@
 <template>
-  <div class="login_container">
-    <div class="login_box">
-    <!--头像区域-->
-      <div class="avatar_box">
-        <img src="../assets/erweima_logo1.png" alt="">
-      </div>
-    <!--登录表单区域-->
-      <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules" label-width="0px" class="login_form">
-        <!--用户名-->
-        <el-form-item prop="username">
-          <el-input v-model="loginForm.username" prefix-icon="iconfont icon-yonghu"></el-input>
-        </el-form-item>
-        <!--密码-->
-        <el-form-item prop="password">
-          <el-input v-model="loginForm.password" prefix-icon="iconfont icon-mima" type="password"></el-input>
-        </el-form-item>
-        <!--按钮区域-->
-        <el-form-item class="btns">
-          <el-button type="primary" @click="login">登录</el-button>
-          <el-button type="info" @click="resetLoginForm">重置</el-button>
-        </el-form-item>
-      </el-form>
-    </div>
-  </div>
+ <div>
+   <div>
+     <HeaderComp></HeaderComp>
+   </div>
+   <div class="login_container">
+     <div class="login_box">
+       <!--头像区域-->
+       <div class="avatar_box">
+         <img src="../assets/erweima_logo1.png" alt="">
+       </div>
+       <!--登录表单区域-->
+       <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules" label-width="0px" class="login_form">
+         <!--用户名-->
+         <el-form-item prop="username">
+           <el-input v-model="loginForm.username" prefix-icon="iconfont icon-yonghu"></el-input>
+         </el-form-item>
+         <!--密码-->
+         <el-form-item prop="password">
+           <el-input v-model="loginForm.password" prefix-icon="iconfont icon-mima" type="password"></el-input>
+         </el-form-item>
+         <!--按钮区域-->
+         <el-form-item class="btns">
+           <el-button type="primary" @click="login">登录</el-button>
+           <el-button type="info" @click="resetLoginForm">重置</el-button>
+         </el-form-item>
+       </el-form>
+     </div>
+   </div>
+   <div>
+     <NavigatorBar></NavigatorBar>
+   </div>
+ </div>
 </template>
 
 <script>
+import NavigatorBar from "@/components/NavigatorBar";
+import HeaderComp from '@/components/HeaderComp'
 export default {
+  name: 'loginUser',
+  components: {
+    HeaderComp,
+    NavigatorBar
+  },
   data () {
     return {
       // 这是登录表单的数据绑定对象
@@ -71,7 +86,6 @@ export default {
 
 <style lang="less" scoped>
   .login_container {
-    background-color: #2b4b6b;
     height: 100%;
   }
 
