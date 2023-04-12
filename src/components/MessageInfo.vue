@@ -75,7 +75,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
   .header{
     height: 60px;
     width: 100%;
@@ -98,5 +98,8 @@ export default {
     line-height: 26px;
     font-size: 15px;
     margin: 0 auto;
+    > p {
+      text-indent: 2em;
+    }
   }
 </style>

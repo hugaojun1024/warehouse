@@ -81,13 +81,13 @@ export default {
   }
   .box {
     margin-top: 30px;
-    width: 414px;
+    padding: 20px 27px;
   }
   .box-bd {
     text-align: center;
   }
   .box-bd ul {
-    width: 380px;
+    //width: 380px;
     display: inline-block;
   }
   .box-bd ul li {
