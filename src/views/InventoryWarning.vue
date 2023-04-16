@@ -29,9 +29,13 @@ export default {
     padding: initial;
   }
   .input-xx {
-    float: left;
+    //float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .el-input {
-    width: 300px;
+    width: 520px;
+    margin-right: 20px;
   }
 </style>

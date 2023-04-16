@@ -44,8 +44,8 @@ export default {
     return {
       // 这是登录表单的数据绑定对象
       loginForm: {
-        username: 'admin',
-        password: '123456'
+        username: '',
+        password: ''
       },
       // 这是表单验证规则对象
       loginFormRules: {
@@ -69,20 +69,22 @@ export default {
       this.$refs.loginFormRef.resetFields()
     },
     login () {
-      /*this.$refs.loginFormRef.validate(async valid => {
-        // console.log(valid)
-        if (!valid) return
-        const { data: res } = await this.$http.post('login', this.loginForm)
-        // console.log(result)
-        if (res.meta.status !== 200) return console.log('登陆失败')
-        console.log('登录成功')
-      })*/
-      if (this.loginForm.username == 'admin' && this.loginForm.password == '123456'){
-        this.$router.push("/user_profile")
-      }
-      else{
-        this.$message.error("用户名或密码错误")
-      }
+      this.$refs.loginFormRef.validate(async valid => {
+        if (!valid) return;
+        const data =  this.$http.post("login", this.loginForm)
+        console.log(data)
+        if (data.status !== 200) {
+          this.$message.error("用户名或密码错误1")
+        } else {
+          this.$router.push("/user_profile")
+        }
+      })
+      // if (this.loginForm.username == 'admin' && this.loginForm.password == '123456'){
+      //   this.$router.push("/user_profile")
+      // }
+      // else{
+      //   this.$message.error("用户名或密码错误")
+      // }
     }
   }
 }

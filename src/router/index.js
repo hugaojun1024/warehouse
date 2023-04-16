@@ -2,9 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import HomeView from '../views/HomeView.vue'
 import LoginUser from '../components/LoginUser.vue'
-import Home from '../components/Home'
+import Home from '../views/Home'
 import CarouselView from '../components/CarouselView'
-import InventoryWarning from '../components/InventoryWarning'
+import InventoryWarning from '../views/InventoryWarning'
 import HeaderComp from '../components/HeaderComp'
 import MessageMenu from '../components/MessageMenu'
 import SuggestionsOffer from '../components/SuggestionsOffer'
@@ -12,7 +12,7 @@ import Message from '../components/Message.vue'
 import UserProfile from "@/components/UserProfile.vue";
 import MessageInfo from '../components/MessageInfo.vue'
 import HeaderCompHasExit from '../components/HeaderCompHasExit'
-import StockInquiry from '../components/StockInquiry'
+import StockInquiry from '../views/StockInquiry'
 
 Vue.use(VueRouter)
 
