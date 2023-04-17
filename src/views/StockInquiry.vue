@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-header>
-      <HeaderComp></HeaderComp>
+      <HeaderCompHasExit url="/"></HeaderCompHasExit>
     </el-header>
     <el-main>
       <div class="input-xx">
@@ -16,11 +16,11 @@
 </template>
 
 <script>
-import HeaderComp from '@/components/HeaderComp'
+import HeaderCompHasExit from "@/components/HeaderCompHasExit.vue";
 import TableForWuzi2 from '@/components/TableForWuzi2'
 export default {
   name: 'inventoryWarning',
-  components: { HeaderComp, TableForWuzi2 }
+  components: { HeaderCompHasExit, TableForWuzi2 }
 }
 </script>
 

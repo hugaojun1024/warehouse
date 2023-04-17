@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header">
-      <HeaderComp></HeaderComp>
+      <HeaderCompHasExit url="/"></HeaderCompHasExit>
     </div>
     <div class="suggest">
       <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
@@ -57,11 +57,11 @@
 </template>
 
 <script>
-import HeaderComp from '@/components/HeaderComp'
+import HeaderCompHasExit from "@/components/HeaderCompHasExit.vue";
 export default {
   name: 'SuggestionsOffer',
   components: {
-    HeaderComp
+    HeaderCompHasExit
   },
   data () {
     return {
