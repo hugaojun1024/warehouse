@@ -9,14 +9,16 @@
        <div class="avatar_box">
          <img src="../assets/erweima_logo1.png" alt="">
        </div>
-       <button>123</button>
+       <div class="wrap">
          <!--用户名-->
-       <el-input v-model="loginForm.username" prefix-icon="iconfont icon-yonghu"></el-input>
+         <el-input v-model="loginForm.username" prefix-icon="iconfont icon-yonghu"></el-input>
          <!--密码-->
-       <el-input v-model="loginForm.userPassword" prefix-icon="iconfont icon-mima" type="password"></el-input>
+         <el-input v-model="loginForm.userPassword" prefix-icon="iconfont icon-mima" type="password"></el-input>
          <!--按钮区域-->
          <button @click="login" class="redBtn">登陆</button>
          <button @click="resetLoginForm" class="greyBtn">重置</button>
+       </div>
+
      </div>
    </div>
    <div class="footer">
@@ -131,6 +133,11 @@ export default {
       }
     }
   }
+  .el-input{
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
   .login_form {
     position: absolute;
     bottom: 0;
@@ -148,5 +155,10 @@ export default {
     top: calc(100vh - 60px);
     left: 0px;
     text-align: center;
+  }
+  .wrap{
+    width: 100%;
+    text-align: center;
+    margin-top: 80px;
   }
 </style>
