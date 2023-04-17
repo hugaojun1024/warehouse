@@ -16,8 +16,6 @@ http://0vo.cc:8088/
 }
 ```
 
-
-### 例子
 验证登陆
 ```javascript
 this.request.post("/user/login",{
