@@ -56,6 +56,14 @@ export default {
   components: {
     Carousel,
     NavigatorBar
+  },
+  created() {
+    this.request.post("/user/login",{
+      username:"admin",
+      userPassword:"123456"
+    }).then(res=>{
+      console.log(res)
+    })
   }
 }
 </script>

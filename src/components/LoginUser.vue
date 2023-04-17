@@ -9,20 +9,14 @@
        <div class="avatar_box">
          <img src="../assets/erweima_logo1.png" alt="">
        </div>
-       <!-- 登录表单区域 -->
-       <el-form style="text-align: center;width: 90%; margin-left: 20px" ref="loginFormRef" :model="loginForm" :rules="loginFormRules" label-width="0px" class="login_form">
+       <button>123</button>
          <!--用户名-->
-         <el-form-item prop="username">
-           <el-input v-model="loginForm.username" prefix-icon="iconfont icon-yonghu"></el-input>
-         </el-form-item>
+       <el-input v-model="loginForm.username" prefix-icon="iconfont icon-yonghu"></el-input>
          <!--密码-->
-         <el-form-item prop="password">
-           <el-input v-model="loginForm.password" prefix-icon="iconfont icon-mima" type="password"></el-input>
-         </el-form-item>
+       <el-input v-model="loginForm.userPassword" prefix-icon="iconfont icon-mima" type="password"></el-input>
          <!--按钮区域-->
          <button @click="login" class="redBtn">登陆</button>
          <button @click="resetLoginForm" class="greyBtn">重置</button>
-       </el-form>
      </div>
    </div>
    <div class="footer">
@@ -45,7 +39,7 @@ export default {
       // 这是登录表单的数据绑定对象
       loginForm: {
         username: '',
-        password: ''
+        userPassword: ''
       },
       // 这是表单验证规则对象
       loginFormRules: {
@@ -69,16 +63,28 @@ export default {
       this.$refs.loginFormRef.resetFields()
     },
     login () {
-      this.$refs.loginFormRef.validate(async valid => {
-        if (!valid) return;
-        const data =  this.$http.post("login", this.loginForm)
-        console.log(data)
-        if (data.status !== 200) {
-          this.$message.error("用户名或密码错误1")
-        } else {
+      console.log(this.loginForm)
+      this.request.post("/user/login",this.loginForm).then(res=>{
+        console.log(res)
+        if (res.code == 200){
+          //登陆成功
           this.$router.push("/user_profile")
         }
+        else if(res.code == 400){
+          //登陆失败
+          this.$message.error(res.msg)
+        }
       })
+      // this.$refs.loginFormRef.validate(async valid => {
+      //   if (!valid) return;
+      //   const data =  this.$http.post("login", this.loginForm)
+      //   console.log(data)
+      //   if (data.status !== 200) {
+      //     this.$message.error("用户名或密码错误1")
+      //   } else {
+      //     this.$router.push("/user_profile")
+      //   }
+      // })
       // if (this.loginForm.username == 'admin' && this.loginForm.password == '123456'){
       //   this.$router.push("/user_profile")
       // }
