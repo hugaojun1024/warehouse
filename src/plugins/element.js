@@ -15,7 +15,8 @@ import {
   CarouselItem,
   Table,
   TableColumn,
-  Upload
+  Upload,
+  Result
 } from 'element-ui'
 
 Vue.use(Button)
@@ -34,4 +35,5 @@ Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Checkbox)
 Vue.use(Upload)
+Vue.use(Result)
 

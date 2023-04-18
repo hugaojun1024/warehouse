@@ -14,6 +14,7 @@ import MessageInfo from '../components/MessageInfo.vue'
 import HeaderCompHasExit from '../components/HeaderCompHasExit'
 import StockInquiry from '../views/StockInquiry'
 import zicanView from "@/views/zicanView";
+import SuggestionSuccess from "@/components/SuggestionSuccess.vue";
 
 Vue.use(VueRouter)
 
@@ -80,6 +81,10 @@ export default new VueRouter({
     {
       path:'/zicanView',
       component: zicanView
+    },
+    {
+      path: '/suggestionSuccess',
+      component: SuggestionSuccess
     }
   ]
 })

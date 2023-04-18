@@ -76,6 +76,10 @@ export default {
           //登陆失败
           this.$message.error(res.msg)
         }
+        else if (res.code == 300){
+          //
+          this.$message.error("您输入的用户名或密码为空")
+        }
       })
       // this.$refs.loginFormRef.validate(async valid => {
       //   if (!valid) return;
