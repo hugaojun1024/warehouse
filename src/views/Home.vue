@@ -31,10 +31,10 @@
                 <span>扫描资产码</span>
               </li>
             </a>
-            <a href="/suggestionsOffer">
+            <a href="/zicanView">
               <li style="background-image: linear-gradient(#DE868F,#BD3124)">
                 <img src="../assets/意见反馈.png">
-                <span>建言献策</span>
+                <span>固定资产查询</span>
               </li>
             </a>
           </ul>

@@ -13,6 +13,7 @@ import UserProfile from "@/components/UserProfile.vue";
 import MessageInfo from '../components/MessageInfo.vue'
 import HeaderCompHasExit from '../components/HeaderCompHasExit'
 import StockInquiry from '../views/StockInquiry'
+import zicanView from "@/views/zicanView";
 
 Vue.use(VueRouter)
 
@@ -75,6 +76,10 @@ export default new VueRouter({
     {
       path: '/suggestionsOffer',
       component: SuggestionsOffer
+    },
+    {
+      path:'/zicanView',
+      component: zicanView
     }
   ]
 })
