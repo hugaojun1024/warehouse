@@ -7,7 +7,7 @@
       <img class="avatar" src="../assets/avatar.png" alt="avatar" width="200">
       <p class="username">李明浩</p>
       <button class="button-option first">联系我们</button>
-      <button class="button-option">反馈建议</button>
+      <button class="button-option" onclick="window.location.href='/SuggestionsOffer'">反馈建议</button>
       <button class="button-option">关于软件</button>
       <button class="redBtn" @click="logout()">退出登陆</button>
     </div>
