@@ -24,18 +24,13 @@
         label="可用值"
         sortable>
       </el-table-column>
-      <el-table-column
-        prop="availNum"
-        label="可用值"
-        sortable>
-      </el-table-column>
     </el-table>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TableForWuzi',
+  name: 'TableForWuzi2',
   data () {
     return {
       tableData: [{

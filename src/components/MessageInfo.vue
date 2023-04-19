@@ -12,7 +12,9 @@
         <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来自：{{messageInfo.messageFrom}}</span>
       </div>
       <div class="message-content">
-        <p>{{messageInfo.messageContext}}</p>
+<!--        <p>{{messageInfo.messageContext}}</p>-->
+<!--        <button class ="depart">设备信息</button>-->
+        <transverse-table2 :tableData="table_data"></transverse-table2>
       </div>
     </div>
   </div>
@@ -20,11 +22,13 @@
 
 <script>
 import HeaderCompHasExit from "@/components/HeaderCompHasExit.vue";
+import TransverseTable2 from "@/components/TransverseTable2";
 import axios from "axios";
 export default {
   name: "MessageInfo",
   components:{
-    HeaderCompHasExit
+    HeaderCompHasExit,
+    TransverseTable2
   },
   data(){
     return {
@@ -101,5 +105,16 @@ export default {
     > p {
       text-indent: 2em;
     }
+  }
+  .depart {
+    background-color: #efefef;
+    width: 98%;
+    height: 70px;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #101010;
+    display:block;
+    margin:0 auto
   }
 </style>

@@ -1,8 +1,3 @@
-<style>
-th.el-table_1_column_3 .cell{
-  color:#f30;
-}
-</style>
 
 <template>
   <div class="table2">
@@ -24,9 +19,9 @@ th.el-table_1_column_3 .cell{
         prop="warningNum"
         label="预警值"
       sortable>
-        <template slot-scope="scope">
-          <span :style="{ color: 'red' }">{{ scope.row.warningNum }}</span>
-        </template>
+<!--        <template slot-scope="scope">-->
+<!--          <span :style="{ color: 'red' }">{{ scope.row.warningNum }}</span>-->
+<!--        </template>-->
       </el-table-column>
       <el-table-column
         prop="availNum"
@@ -68,3 +63,8 @@ export default {
 }
 </script>
 
+<style lang="less">
+th.el-table_1_column_3 .cell{
+  color:#f30;
+}
+</style>

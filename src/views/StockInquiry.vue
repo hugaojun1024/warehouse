@@ -5,7 +5,7 @@
     </el-header>
     <el-main>
       <div class="input-xx">
-        <el-input v-model="input" placeholder="请输入内容" suffix-icon="iconfont icon-sousuo"></el-input>
+        <el-input v-model="input" placeholder="请输入物资名称或实物码" suffix-icon="iconfont icon-sousuo"></el-input>
         <el-button>搜索</el-button>
       </div>
       <TableForWuzi2></TableForWuzi2>

@@ -17,9 +17,7 @@ import zicanView from "@/views/zicanView";
 import SuggestionSuccess from "@/components/SuggestionSuccess.vue";
 import test from "@/components/test.vue";
 import NavigatorBar from "@/components/NavigatorBar"
-import ContactUs from "@/views/ContactUs.vue";
-import AboutApp from "@/views/AboutApp.vue";
-
+import SuggestView from "@/views/SuggestView";
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -89,6 +87,10 @@ export default new VueRouter({
     {
       path: '/NavigatorBar',
       component: NavigatorBar
+    },
+    {
+      path: '/SuggestView',
+      component:SuggestView
     },
     {
       path:'/contact_us',
