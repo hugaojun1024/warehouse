@@ -4,7 +4,7 @@
       <HeaderComp></HeaderComp>
     </div>
     <div class="content">
-      <img class="avatar" :src="userLoginInfo.avatarUrl" alt="avatar" width="200">
+      <img class="avatar" src="../assets/erweima_logo1.png" alt="avatar" width="200">
       <p class="username">{{userLoginInfo.nickname}}</p>
       <button class="button-option first" @click="contactUs">联系我们</button>
       <button class="button-option" onclick="window.location.href='/SuggestionsOffer'">反馈建议</button>
@@ -90,5 +90,8 @@ export default {
   }
   .first{
     border-top: 1px solid #999;
+  }
+  .avatar{
+    border: 2px solid #eee;
   }
 </style>
