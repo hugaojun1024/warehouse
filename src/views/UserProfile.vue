@@ -12,7 +12,7 @@
       <button class="redBtn" @click="logout()">退出登陆</button>
     </div>
     <div class="footer">
-      <NavigatorBar></NavigatorBar>
+      <NavigatorBar index="3"></NavigatorBar>
     </div>
   </div>
 </template>

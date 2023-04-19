@@ -2,13 +2,13 @@
   <div class="footer">
     <div class="footer-xx">
       <ul>
-        <a href="/">
+        <a href="/" :style="home">
           <li class="iconfont icon-shouye"><span>首页</span></li>
         </a>
-        <a href="/message">
+        <a :style="message" href="/message">
           <li class="iconfont icon-xiaoxi"><span>消息</span></li>
         </a>
-        <a href="/user_profile">
+        <a :style="profile" href="/user_profile">
           <li class="iconfont icon-31wode"><span>我的</span></li>
         </a>
       </ul>
@@ -17,8 +17,36 @@
 </template>
 
 <script>
+
 export default {
-    name: "NavigatorBar"
+    name: "NavigatorBar",
+    props:['index'],
+    created() {
+      this.init()
+    },
+    data(){
+      return {
+        Index:this.index,
+        home:'color: #ccc',
+        message:'color: #ccc',
+        profile:'color: #ccc'
+      }
+    },
+    methods:{
+      init(){
+        if (this.index == 1){
+          //首页
+          this.home = 'color: #fff'
+        } else if(this.index == 2){
+          //消息
+          this.message = 'color: #fff'
+        } else if(this.index == 3){
+          // 个人中心
+          this.profile = 'color: #fff'
+
+        }
+      }
+    }
 }
 </script>
 

@@ -20,7 +20,7 @@
       </div>
     </div>
     <div>
-      <NavigatorBar></NavigatorBar>
+      <NavigatorBar index="2"></NavigatorBar>
     </div>
   </div>
 </template>

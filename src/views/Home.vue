@@ -52,7 +52,7 @@
     </el-main>
     <!--底部区域-->
     <el-footer>
-      <NavigatorBar></NavigatorBar>
+      <NavigatorBar index="1"></NavigatorBar>
     </el-footer>
   </el-container>
 </template>
