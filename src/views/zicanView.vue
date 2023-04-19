@@ -4,6 +4,10 @@
       <HeaderCompHasExit url="/"></HeaderCompHasExit>
     </el-header>
     <el-main>
+      <div class="input-xx">
+        <el-input v-model="input" placeholder="请输入实物码" suffix-icon="iconfont icon-sousuo"></el-input>
+        <el-button>搜索</el-button>
+      </div>
       <button class ="depart">设备信息</button>
       <transverse-table :tableData="table_data"></transverse-table>
     </el-main>
@@ -36,6 +40,16 @@ export default {
     font-weight: bolder;
     color: #101010;
     display:block;
-    margin:0 auto
+    margin:20px auto
+  }
+  .input-xx {
+    //float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .el-input {
+    width: 520px;
+    margin-right: 20px;
   }
 </style>
