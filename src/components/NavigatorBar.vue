@@ -8,7 +8,7 @@
         <a href="/message">
           <li class="iconfont icon-xiaoxi"><span>消息</span></li>
         </a>
-        <a href="/loginUser">
+        <a href="/user_profile">
           <li class="iconfont icon-31wode"><span>我的</span></li>
         </a>
       </ul>

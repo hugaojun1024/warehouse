@@ -71,7 +71,9 @@ export default {
       this.request.post("/user/login",this.loginForm).then(res=>{
         console.log(res)
         if (res.code == 200){
-          //登陆成功
+          //用户名密码校验成功
+          //存储账户信息
+          localStorage.setItem("userLoginInfo",JSON.stringify(res.data))
           this.$router.push("/user_profile")
         }
         else if(res.code == 400){
@@ -116,7 +118,6 @@ export default {
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: #fff;
-
       img {
         width: 100%;
         height: 100%;

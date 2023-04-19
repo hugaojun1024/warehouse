@@ -4,8 +4,8 @@
       <HeaderComp></HeaderComp>
     </div>
     <div class="content">
-      <img class="avatar" src="../assets/avatar.png" alt="avatar" width="200">
-      <p class="username">李明浩</p>
+      <img class="avatar" :src="userLoginInfo.avatarUrl" alt="avatar" width="200">
+      <p class="username">{{userLoginInfo.nickname}}</p>
       <button class="button-option first">联系我们</button>
       <button class="button-option" onclick="window.location.href='/SuggestionsOffer'">反馈建议</button>
       <button class="button-option">关于软件</button>
@@ -29,8 +29,25 @@ export default {
     HeaderComp,
     NavigatorBar
   },
+  data(){
+    return {
+      userLoginInfo: localStorage.getItem("userLoginInfo") ? JSON.parse(localStorage.getItem("userLoginInfo")):{}
+    }
+  },
+  created() {
+    if (this.userLoginInfo.userId == null){
+      this.$router.push("/loginUser")
+    }
+  },
+  mounted() {
+
+  },
   methods:{
     logout(){
+      //清除本地保存的用户登录信息
+      if (localStorage.getItem("userLoginInfo") != null){
+        localStorage.removeItem("userLoginInfo")
+      }
       this.$router.push("/loginUser")
     }
   }
