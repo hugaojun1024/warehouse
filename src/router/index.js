@@ -15,7 +15,7 @@ import HeaderCompHasExit from '../components/HeaderCompHasExit'
 import StockInquiry from '../views/StockInquiry'
 import zicanView from "@/views/zicanView";
 import SuggestionSuccess from "@/components/SuggestionSuccess.vue";
-
+import NavigatorBar from "@/components/NavigatorBar"
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -85,6 +85,10 @@ export default new VueRouter({
     {
       path: '/suggestionSuccess',
       component: SuggestionSuccess
+    },
+    {
+      path: '/NavigatorBar',
+      component: NavigatorBar
     }
   ]
 })

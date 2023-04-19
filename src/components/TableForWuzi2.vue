@@ -40,7 +40,7 @@ export default {
     return {
       tableData: [{
         className: '口罩1',
-        wuziName: '一次性医用口罩123412341234',
+        wuziName: '一次性医用口罩1',
         warningNum: '488',
         availNum: '530',
         physicalCode: 'Ax1211233'
