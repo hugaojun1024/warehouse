@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1367343",
+      "name": "资产",
+      "font_class": "zichan",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "2127180",
+      "name": "沙漏",
+      "font_class": "shalou",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
       "icon_id": "6626335",
       "name": "退出",
       "font_class": "tuichu",

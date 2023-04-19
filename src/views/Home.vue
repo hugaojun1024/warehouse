@@ -17,7 +17,7 @@
               </li>
             </a>
             <a href="/inventoryWarning">
-              <li style="background-image: linear-gradient(#7FE6E6,#50968B)">
+              <li style="background-image: linear-gradient(#d5a1f7,#b76de7)">
                 <img src="../assets/预警提醒.png">
                 <span>库存预警提醒</span>
               </li>
@@ -29,15 +29,21 @@
               </li>
             </a>
             <a href="/zicanView">
-              <li style="background-image: linear-gradient(#DE868F,#BD3124)">
-                <img src="../assets/意见反馈.png">
+              <li style="background-image: linear-gradient(#DE868F,#bd4c40)">
+                <img src="../assets/资产 (1).png">
                 <span>固定资产查询</span>
               </li>
             </a>
             <a v-if="suggestViewFlag" href="/suggestView">
-              <li style="background-image: linear-gradient(#DE868F,#BD3124)">
+              <li style="background-image: linear-gradient(#efb73f,#b7933b)">
                 <img src="../assets/意见反馈.png">
                 <span>反馈建议查询</span>
+              </li>
+            </a>
+            <a v-if="suggestViewFlag" href="#">
+              <li style="background-image: linear-gradient(#0b5575,#3b8cb7)">
+                <img src="../assets/沙漏 (1).png">
+                <span>待开发</span>
               </li>
             </a>
           </ul>
