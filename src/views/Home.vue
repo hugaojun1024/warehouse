@@ -34,7 +34,7 @@
                 <span>固定资产查询</span>
               </li>
             </a>
-            <a href="/suggestView">
+            <a v-if="suggestViewFlag" href="/suggestView">
               <li style="background-image: linear-gradient(#DE868F,#BD3124)">
                 <img src="../assets/意见反馈.png">
                 <span>反馈建议查询</span>
@@ -62,13 +62,21 @@ export default {
     NavigatorBar,
     HeaderComp
   },
+  data(){
+    return{
+      suggestViewFlag:false,
+      userLoginInfo: localStorage.getItem("userLoginInfo") ? JSON.parse(localStorage.getItem("userLoginInfo")):{}
+    }
+  },
   created() {
-    this.request.post("/user/login",{
-      username:"admin",
-      userPassword:"123456"
-    }).then(res=>{
-      console.log(res)
-    })
+    if (this.userLoginInfo.userId == null){
+      this.$router.push("/loginUser")
+    }
+  },
+  mounted() {
+    if (this.userLoginInfo.role == 1){
+      this.suggestViewFlag = true
+    }
   }
 }
 </script>

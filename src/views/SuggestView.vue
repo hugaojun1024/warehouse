@@ -1,18 +1,18 @@
 <template>
   <div>
-    <header-comp></header-comp>
+    <HeaderCompHasExit url="/"></HeaderCompHasExit>
     <suggest-table></suggest-table>
   </div>
 </template>
 
 <script>
-import HeaderComp from '@/components/HeaderComp';
+import HeaderCompHasExit from "@/components/HeaderCompHasExit.vue";
 import SuggestTable from "@/components/SuggestTable";
 export default {
   name: "SuggestView",
   components: {
     SuggestTable,
-    HeaderComp
+    HeaderCompHasExit
   }
 }
 </script>

@@ -34,8 +34,14 @@ export default {
     HeaderComp,
     NavigatorBar
   },
+  created() {
+    if (this.userLoginInfo.userId == null){
+      this.$router.push("/loginUser")
+    }
+  },
   data(){
     return {
+      userLoginInfo: localStorage.getItem("userLoginInfo") ? JSON.parse(localStorage.getItem("userLoginInfo")):{},
       messageData:[
         {
           messageId:1,

@@ -1,13 +1,13 @@
 <template>
   <div>
-    <el-checkbox-group v-model="checkList">
-      <el-checkbox label="复选框 A"></el-checkbox>
-      <el-checkbox label="复选框 B"></el-checkbox>
-      <el-checkbox label="复选框 C"></el-checkbox>
-      <el-checkbox label="禁用" disabled></el-checkbox>
-      <el-checkbox label="选中且禁用" disabled></el-checkbox>
-    </el-checkbox-group>
-    <el-button @click="testtest">测试</el-button>
+    <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page.sync="currentPage1"
+      :page-size="100"
+      layout="total, prev, pager, next"
+      :total="1000">
+    </el-pagination>
   </div>
 
 </template>

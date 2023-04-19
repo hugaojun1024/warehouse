@@ -10,7 +10,12 @@
       </div>
       <TableForWuzi2></TableForWuzi2>
     </el-main>
-    <el-footer>
+    <el-footer style="text-align: center">
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :total="1000">
+      </el-pagination>
     </el-footer>
   </el-container>
 </template>

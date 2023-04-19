@@ -15,7 +15,7 @@
             <span>{{ props.row.phone }}</span>
           </el-form-item>
           <el-form-item label="问题类型">
-            <span>{{ props.row.problemType }}</span>
+            <span>{{ props.row.type }}</span>
           </el-form-item>
           <el-form-item label="问题描述">
             <span>{{ props.row.problemDesc }}</span>
@@ -35,7 +35,7 @@
     </el-table-column>
     <el-table-column
       label="问题类型"
-      prop="problemType">
+      prop="type">
     </el-table-column>
     <el-table-column
       label="问题描述"
@@ -61,6 +61,23 @@
 
 <script>
 export default {
+
+  created() {
+    this.load()
+  },
+  methods:{
+    load(){
+      //加载数据
+      this.request.get("/feed_back/page",{
+        params:{
+          pageNum:1,
+          pageSize:8
+        }
+      }).then(res=>{
+        this.tableData = res.records
+      })
+    }
+  },
   data() {
     return {
       tableData: [{

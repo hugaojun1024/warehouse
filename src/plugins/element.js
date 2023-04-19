@@ -17,7 +17,8 @@ import {
   TableColumn,
   Upload,
   Result,
-  CheckboxGroup
+  CheckboxGroup,
+  Pagination
 } from 'element-ui'
 
 Vue.use(Button)
@@ -38,5 +39,6 @@ Vue.use(Checkbox)
 Vue.use(Upload)
 Vue.use(Result)
 Vue.use(CheckboxGroup)
+Vue.use(Pagination)
 
 

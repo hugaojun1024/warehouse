@@ -9,8 +9,14 @@
         <el-button>搜索</el-button>
       </div>
       <TableForWuzi></TableForWuzi>
+
     </el-main>
-    <el-footer>
+    <el-footer style="text-align: center">
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :total="1000">
+      </el-pagination>
     </el-footer>
   </el-container>
 </template>

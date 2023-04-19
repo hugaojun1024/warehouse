@@ -18,6 +18,8 @@ import SuggestionSuccess from "@/components/SuggestionSuccess.vue";
 import test from "@/components/test.vue";
 import NavigatorBar from "@/components/NavigatorBar"
 import AboutApp from "@/views/AboutApp.vue";
+import SuggestionList from "@/views/SuggestionList.vue";
+
 import suggestView from "@/views/SuggestView";
 Vue.use(VueRouter)
 
@@ -104,6 +106,10 @@ export default new VueRouter({
     {
       path:'/SuggestView',
       component:suggestView
+    },
+    {
+      path:"/suggestion_list",
+      component:SuggestionList
     }
   ]
 })
