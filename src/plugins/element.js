@@ -16,7 +16,8 @@ import {
   Table,
   TableColumn,
   Upload,
-  Result
+  Result,
+  CheckboxGroup
 } from 'element-ui'
 
 Vue.use(Button)
@@ -36,4 +37,6 @@ Vue.use(TableColumn)
 Vue.use(Checkbox)
 Vue.use(Upload)
 Vue.use(Result)
+Vue.use(CheckboxGroup)
+
 
