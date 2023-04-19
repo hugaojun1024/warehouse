@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class = "car">
     <el-carousel :interval="3000" arrow="always" height="bannerHeight + 'px'">
       <el-carousel-item v-for="item in images" :key="item">
         <el-image :src="item" class="images"></el-image>
@@ -35,6 +35,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+
+.car {
+  height: 300px;
+  width: 100%;
+}
 
 .el-carousel-item img{
   width: 100%;

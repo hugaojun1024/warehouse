@@ -79,32 +79,26 @@ export default {
     padding: 20px 27px;
   }
   .box-bd {
-    text-align: center;
-    display: flex;
-    justify-content: center;
+    //text-align: center;
   }
   .box-bd ul {
     //width: 380px;
-    //display: inline-block;
-    display: flex;
-    justify-content: center;
+    display: inline-block;
+    //display: flex; /* 将ul元素变为弹性容器 */
+    //justify-content: center; /* 水平居中ul元素中的li元素 */
   }
-
   .box-bd ul li {
-    //float: left;
+    float: left;
     width: 110px;
     height: 110px;
-    //margin-right: 50px;
-    //margin-bottom: 15px;
-    //border-radius: 10px;
-    //display: flex;
+    //margin-left: 2px;
+    margin-right: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    display: flex;
     flex-direction: column;
-    //justify-content: center;
-    //align-items: center;
-    display: flex; /* 将li元素变为弹性容器 */
-    justify-content: center; /* 水平居中其内部的文本 */
-    align-items: center; /* 垂直居中文本 */
-    margin: 4px 40px; /* 可选：添加水平间距 */
+    justify-content: center;
+    align-items: center;
     > img {
       width: 70px;
       height: 70px;

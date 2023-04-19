@@ -92,7 +92,9 @@ export default {
   .login_container {
     height: 100%;
   }
-
+  .el-header {
+    padding: initial;
+  }
   .login_box {
     width: 100%;
     height: 300px;

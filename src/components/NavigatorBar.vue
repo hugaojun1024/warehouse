@@ -24,7 +24,10 @@ export default {
 
 <style lang="less" scoped>
   .footer {
+    position: fixed; /*or前面的是absolute就可以用*/
+    bottom: 0px;
     height: 60px;
+    width: 100%;
     background-color: #ff0000;
   }
   .footer-xx {

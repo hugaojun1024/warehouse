@@ -19,7 +19,7 @@
           </div>
       </div>
     </div>
-    <div class="footer">
+    <div>
       <NavigatorBar></NavigatorBar>
     </div>
   </div>
@@ -72,10 +72,7 @@ export default {
 .content{
   width: 100%;
 }
-.footer{
-  width: 100%;
-  height: 60px;
-}
+
 .content .message-content{
   width: 100%;
   height: calc(100vh - 120px);
