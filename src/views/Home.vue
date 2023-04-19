@@ -2,10 +2,7 @@
   <el-container class="home-container">
     <!--头部区域-->
     <el-header>
-      <div>
-        <img src="../assets/erweima_logo1.png" alt="" height="50">
-        <span>资产全链条管理平台</span>
-      </div>
+      <HeaderComp></HeaderComp>
     </el-header>
     <!--页面主体区-->
     <el-main>
@@ -49,13 +46,15 @@
 </template>
 
 <script>
-import Carousel from '@/components/CarouselView'
 import NavigatorBar from "@/components/NavigatorBar.vue";
+import Carousel from '@/components/CarouselView';
+import HeaderComp from '@/components/HeaderComp';
 export default {
   name: 'HomeVue',
   components: {
     Carousel,
-    NavigatorBar
+    NavigatorBar,
+    HeaderComp
   },
   created() {
     this.request.post("/user/login",{
@@ -73,35 +72,26 @@ export default {
     height: 100%;
   }
   .el-header {
-    background-color: #DB0039;
-    display: flex;
-    justify-content: center;
-    //align-items: center;
-    color: #ffffff;
-    font-size: 20px;
-    > div {
-      display: flex;
-      align-items: center;
-      span {
-        margin-left: 15px;
-      }
-    }
+    padding: initial;
   }
   .box {
     margin-top: 30px;
     padding: 20px 27px;
   }
   .box-bd {
-    text-align: center;
+    //text-align: center;
   }
   .box-bd ul {
     //width: 380px;
     display: inline-block;
+    //display: flex; /* 将ul元素变为弹性容器 */
+    //justify-content: center; /* 水平居中ul元素中的li元素 */
   }
   .box-bd ul li {
     float: left;
     width: 110px;
     height: 110px;
+    //margin-left: 2px;
     margin-right: 50px;
     margin-bottom: 15px;
     border-radius: 10px;

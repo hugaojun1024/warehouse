@@ -16,7 +16,7 @@ import StockInquiry from '../views/StockInquiry'
 import zicanView from "@/views/zicanView";
 import SuggestionSuccess from "@/components/SuggestionSuccess.vue";
 import test from "@/components/test.vue";
-
+import NavigatorBar from "@/components/NavigatorBar"
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -90,6 +90,10 @@ export default new VueRouter({
     {
       path: '/test',
       component: test
+    },
+    {
+      path: '/NavigatorBar',
+      component: NavigatorBar
     }
   ]
 })

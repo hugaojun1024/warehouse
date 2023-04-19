@@ -1,30 +1,32 @@
 <template>
- <div>
-   <div>
-     <HeaderComp></HeaderComp>
-   </div>
-   <div class="login_container">
-     <div class="login_box">
-       <!--头像区域-->
-       <div class="avatar_box">
-         <img src="../assets/erweima_logo1.png" alt="">
-       </div>
-       <div class="wrap">
-         <!--用户名-->
-         <el-input v-model="loginForm.username" prefix-icon="iconfont icon-yonghu"></el-input>
-         <!--密码-->
-         <el-input v-model="loginForm.userPassword" prefix-icon="iconfont icon-mima" type="password"></el-input>
-         <!--按钮区域-->
-         <button @click="login" class="redBtn">登陆</button>
-         <button @click="resetLoginForm" class="greyBtn">重置</button>
-       </div>
-
-     </div>
-   </div>
-   <div class="footer">
+  <el-container class="home-container">
+    <el-header>
+      <HeaderComp></HeaderComp>
+    </el-header>
+    <el-main>
+      <div class="login_container">
+        <div class="login_box">
+          <!--头像区域-->
+          <div class="avatar_box">
+            <img src="../assets/erweima_logo1.png" alt="">
+          </div>
+          <div class="wrap">
+            <!--用户名-->
+            <el-input v-model="loginForm.username" prefix-icon="iconfont icon-yonghu"></el-input>
+            <!--密码-->
+            <el-input v-model="loginForm.userPassword" prefix-icon="iconfont icon-mima" type="password"></el-input>
+            <!--按钮区域-->
+            <button @click="login" class="redBtn">登陆</button>
+            <button @click="resetLoginForm" class="greyBtn">重置</button>
+          </div>
+        </div>
+      </div>
+    </el-main>
+   <!--底部区域-->
+   <el-footer>
      <NavigatorBar></NavigatorBar>
-   </div>
- </div>
+   </el-footer>
+  </el-container>
 </template>
 
 <script>
@@ -81,22 +83,6 @@ export default {
           this.$message.error("您输入的用户名或密码为空")
         }
       })
-      // this.$refs.loginFormRef.validate(async valid => {
-      //   if (!valid) return;
-      //   const data =  this.$http.post("login", this.loginForm)
-      //   console.log(data)
-      //   if (data.status !== 200) {
-      //     this.$message.error("用户名或密码错误1")
-      //   } else {
-      //     this.$router.push("/user_profile")
-      //   }
-      // })
-      // if (this.loginForm.username == 'admin' && this.loginForm.password == '123456'){
-      //   this.$router.push("/user_profile")
-      // }
-      // else{
-      //   this.$message.error("用户名或密码错误")
-      // }
     }
   }
 }
@@ -106,9 +92,11 @@ export default {
   .login_container {
     height: 100%;
   }
-
+  .el-header {
+    padding: initial;
+  }
   .login_box {
-    width: 450px;
+    width: 100%;
     height: 300px;
     background-color: #fff;
     border-radius: 3px;
@@ -153,13 +141,13 @@ export default {
     display: flex;
     justify-content: flex-end;
   }
-  .footer{
-    width: 100%;
-    position: fixed;
-    top: calc(100vh - 60px);
-    left: 0px;
-    text-align: center;
-  }
+  //.footer{
+  //  width: 100%;
+  //  position: fixed;
+  //  top: calc(100vh - 60px);
+  //  left: 0px;
+  //  text-align: center;
+  //}
   .wrap{
     width: 100%;
     text-align: center;
