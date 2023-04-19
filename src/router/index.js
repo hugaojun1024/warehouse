@@ -9,7 +9,7 @@ import HeaderComp from '../components/HeaderComp'
 import MessageMenu from '../components/MessageMenu'
 import SuggestionsOffer from '../components/SuggestionsOffer'
 import Message from '../components/Message.vue'
-import UserProfile from "@/components/UserProfile.vue";
+import UserProfile from "@/views/UserProfile.vue";
 import MessageInfo from '../components/MessageInfo.vue'
 import HeaderCompHasExit from '../components/HeaderCompHasExit'
 import StockInquiry from '../views/StockInquiry'
@@ -17,6 +17,9 @@ import zicanView from "@/views/zicanView";
 import SuggestionSuccess from "@/components/SuggestionSuccess.vue";
 import test from "@/components/test.vue";
 import NavigatorBar from "@/components/NavigatorBar"
+import ContactUs from "@/views/ContactUs.vue";
+import AboutApp from "@/views/AboutApp.vue";
+
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -26,14 +29,6 @@ export default new VueRouter({
       path: '/',
       name: 'HomeVue',
       component: Home
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
     },
     {
       path: '/loginUser',
@@ -94,6 +89,14 @@ export default new VueRouter({
     {
       path: '/NavigatorBar',
       component: NavigatorBar
+    },
+    {
+      path:'/contact_us',
+      component:ContactUs
+    },
+    {
+      path:'/about_app',
+      component:AboutApp
     }
   ]
 })

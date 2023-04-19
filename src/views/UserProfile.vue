@@ -6,9 +6,9 @@
     <div class="content">
       <img class="avatar" :src="userLoginInfo.avatarUrl" alt="avatar" width="200">
       <p class="username">{{userLoginInfo.nickname}}</p>
-      <button class="button-option first">联系我们</button>
+      <button class="button-option first" @click="contactUs">联系我们</button>
       <button class="button-option" onclick="window.location.href='/SuggestionsOffer'">反馈建议</button>
-      <button class="button-option">关于软件</button>
+      <button class="button-option" @click="aboutApp">关于软件</button>
       <button class="redBtn" @click="logout()">退出登陆</button>
     </div>
     <div class="footer">
@@ -49,6 +49,12 @@ export default {
         localStorage.removeItem("userLoginInfo")
       }
       this.$router.push("/loginUser")
+    },
+    contactUs(){
+      this.$router.push("/contact_us")
+    },
+    aboutApp(){
+      this.$router.push("/about_app")
     }
   }
 }
