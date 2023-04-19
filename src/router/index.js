@@ -17,7 +17,8 @@ import zicanView from "@/views/zicanView";
 import SuggestionSuccess from "@/components/SuggestionSuccess.vue";
 import test from "@/components/test.vue";
 import NavigatorBar from "@/components/NavigatorBar"
-import SuggestView from "@/views/SuggestView";
+import AboutApp from "@/views/AboutApp.vue";
+import suggestView from "@/views/SuggestView";
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -27,6 +28,14 @@ export default new VueRouter({
       path: '/',
       name: 'HomeVue',
       component: Home
+    },
+    {
+      path: '/about',
+      name: 'about',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ '../views/AboutApp.vue')
     },
     {
       path: '/loginUser',
@@ -89,16 +98,12 @@ export default new VueRouter({
       component: NavigatorBar
     },
     {
-      path: '/SuggestView',
-      component:SuggestView
-    },
-    {
-      path:'/contact_us',
-      component:ContactUs
-    },
-    {
-      path:'/about_app',
+      path: '/AboutApp',
       component:AboutApp
+    },
+    {
+      path:'/SuggestView',
+      component:suggestView
     }
   ]
 })
