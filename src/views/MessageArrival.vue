@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="header">
-      <HeaderComp></HeaderComp>
-    </div>
+    <el-header>
+      <HeaderCompHasExit url="/"></HeaderCompHasExit>
+    </el-header>
     <div class="content">
       <div class="message-content">
         <div class="message-item" v-for="item in messageData">
@@ -26,12 +26,12 @@
 </template>
 
 <script>
-import HeaderComp from '@/components/HeaderComp'
+import HeaderCompHasExit from '@/components/HeaderCompHasExit'
 import NavigatorBar from "@/components/NavigatorBar.vue";
 export default {
   name: "MessageArrival",
   components:{
-    HeaderComp,
+    HeaderCompHasExit,
     NavigatorBar
   },
   created() {
@@ -71,6 +71,11 @@ export default {
 </script>
 
 <style scoped>
+
+.el-header {
+  padding: initial;
+}
+
 .header{
   height: 60px;
   width: 100%;

@@ -5,11 +5,6 @@
       :data="tableData"
       stripe
       class="wuzi-table">
-<!--      <el-table-column-->
-<!--        prop="className"-->
-<!--        label="分类名称"-->
-<!--      sortable>-->
-<!--      </el-table-column>-->
       <el-table-column
         prop="wuziName"
         label="物资名称"
@@ -19,9 +14,6 @@
         prop="warningNum"
         label="预警值"
       sortable>
-<!--        <template slot-scope="scope">-->
-<!--          <span :style="{ color: 'red' }">{{ scope.row.warningNum }}</span>-->
-<!--        </template>-->
       </el-table-column>
       <el-table-column
         prop="numInStork"

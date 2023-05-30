@@ -30,33 +30,30 @@
 
 <script>
 export default {
-  name: 'TableForWuzi2',
+  name: 'TableForInquiry',
   data () {
     return {
-
-    }
-  },
-  created() {
-    this.getWuziMessage()
-  },
-  methods: {
-    getWuziMessage() {
-      this.request.post('/',null, {
-        headers: {
-          'serviceId':'GET_EXPEND_GOODS'
-        }
-      }).then(res=>{
-        console.log(res)
-        if (res.code === 200){
-
-        }
-        else if(res.code === 400){
-
-        }
-        else if (res.code === 300){
-
-        }
-      })
+      tableData: [{
+        wuziName: '一次性医用口罩',
+        numInStork: '530',
+        physicalCode: 'Ax1211233',
+        location:'地铁大厦站'
+      }, {
+        wuziName: '一次性医用口罩',
+        numInStork: '530',
+        physicalCode: 'Ax1211233',
+        location:'地铁大厦站'
+      }, {
+        wuziName: '一次性医用口罩',
+        numInStork: '530',
+        physicalCode: 'Ax1211233',
+        location:'地铁大厦站'
+      }, {
+        wuziName: '一次性医用口罩',
+        numInStork: '530',
+        physicalCode: 'Ax1211233',
+        location:'地铁大厦站'
+      }]
     }
   }
 }

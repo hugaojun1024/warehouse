@@ -23,7 +23,7 @@
 
 <script>
 import HeaderCompHasExit from "@/components/HeaderCompHasExit.vue";
-import TableForWuzi from '@/components/TableForWuzi'
+import TableForWuzi from '@/components/TableForWarning'
 export default {
   name: 'inventoryWarning',
   components: { HeaderCompHasExit, TableForWuzi }
