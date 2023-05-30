@@ -19,6 +19,8 @@ import test from "@/components/test.vue";
 import NavigatorBar from "@/components/NavigatorBar"
 import AboutApp from "@/views/AboutApp.vue";
 import SuggestionList from "@/views/SuggestionList.vue";
+import MessageTransfer from "@/views/MessageTransfer";
+import MessageArrival from "@/views/MessageArrival";
 
 import suggestView from "@/views/SuggestView";
 Vue.use(VueRouter)
@@ -110,6 +112,14 @@ export default new VueRouter({
     {
       path:"/suggestion_list",
       component:SuggestionList
+    },
+    {
+      path:"/messageTransfer",
+      component:MessageTransfer
+    },
+    {
+      path:"/messageArrival",
+      component:MessageArrival
     }
   ]
 })

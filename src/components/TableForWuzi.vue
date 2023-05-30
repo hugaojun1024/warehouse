@@ -5,11 +5,11 @@
       :data="tableData"
       stripe
       class="wuzi-table">
-      <el-table-column
-        prop="className"
-        label="分类名称"
-      sortable>
-      </el-table-column>
+<!--      <el-table-column-->
+<!--        prop="className"-->
+<!--        label="分类名称"-->
+<!--      sortable>-->
+<!--      </el-table-column>-->
       <el-table-column
         prop="wuziName"
         label="物资名称"
@@ -24,8 +24,8 @@
 <!--        </template>-->
       </el-table-column>
       <el-table-column
-        prop="availNum"
-        label="可用值"
+        prop="numInStork"
+        label="仓库数量"
       sortable>
       </el-table-column>
     </el-table>
@@ -41,22 +41,22 @@ export default {
         className: '口罩',
         wuziName: '一次性医用口罩',
         warningNum: '488',
-        availNum: '530'
+        numInStork: '530'
       }, {
         className: '口罩',
         wuziName: '一次性医用口罩',
         warningNum: '488',
-        availNum: '530'
+        numInStork: '530'
       }, {
         className: '口罩',
         wuziName: '一次性医用口罩',
         warningNum: '488',
-        availNum: '530'
+        numInStork: '530'
       }, {
         className: '口罩',
         wuziName: '一次性医用口罩',
         warningNum: '488',
-        availNum: '530'
+        numInStork: '530'
       }]
     }
   }

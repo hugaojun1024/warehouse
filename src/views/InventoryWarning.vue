@@ -4,10 +4,10 @@
       <HeaderCompHasExit url="/"></HeaderCompHasExit>
     </el-header>
     <el-main>
-      <div class="input-xx">
-        <el-input v-model="input" placeholder="请输入内容" suffix-icon="iconfont icon-sousuo"></el-input>
-        <el-button>搜索</el-button>
-      </div>
+<!--      <div class="input-xx">-->
+<!--        <el-input v-model="input" placeholder="请输入内容" suffix-icon="iconfont icon-sousuo"></el-input>-->
+<!--        <el-button>搜索</el-button>-->
+<!--      </div>-->
       <TableForWuzi></TableForWuzi>
 
     </el-main>

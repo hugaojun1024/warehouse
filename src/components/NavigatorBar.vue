@@ -6,7 +6,7 @@
           <li class="iconfont icon-shouye"><span>首页</span></li>
         </a>
         <a :style="message" href="/message">
-          <li class="iconfont icon-xiaoxi"><span>消息</span></li>
+          <li class="iconfont icon-code"><span>扫描资产码</span></li>
         </a>
         <a :style="profile" href="/user_profile">
           <li class="iconfont icon-31wode"><span>我的</span></li>
@@ -71,7 +71,7 @@ export default {
   }
   .footer-xx ul li{
     //float: left;
-    width: 50px;
+    width: 80px;
     height: 50px;
     ///*background-color: #42b983;*/
     //margin-right: 67px;

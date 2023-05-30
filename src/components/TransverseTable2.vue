@@ -26,7 +26,7 @@ export default {
           value: "双港站"
         },
         {
-          name: "序号",
+          name: "**名称",
           value: '00001',
         },
         {
@@ -34,28 +34,16 @@ export default {
           value: 'Ax1210200c',
         },
         {
-          name: "物资编码",
-          value: 'SX00121',
+          name: "到货项数+点开可以查看清单",
+          value: '121',
         },
         {
-          name: "物资名称",
-          value: "计划到货量",
+          name: "到货时间",
+          value: "2023_5_1",
         },
         {
-          name: "可登记数量",
-          value: "100000",
-        },
-        {
-          name: "本次到货数量",
-          value: "10000"
-        },
-        {
-          name: "规格型号",
-          value: "x1122"
-        },
-        {
-          name:"品牌厂家",
-          value: "XXXX"
+          name: "验收截止时间",
+          value: "2023_5_8",
         }
       ]
     };

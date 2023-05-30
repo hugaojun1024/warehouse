@@ -5,11 +5,6 @@
       stripe
       class="wuzi-table">
       <el-table-column
-        prop="className"
-        label="分类名称"
-        sortable>
-      </el-table-column>
-      <el-table-column
         prop="wuziName"
         label="物资名称"
         sortable>
@@ -20,8 +15,13 @@
         sortable>
       </el-table-column>
       <el-table-column
-        prop="availNum"
-        label="可用值"
+        prop="numInStork"
+        label="库存数量"
+        sortable>
+      </el-table-column>
+      <el-table-column
+        prop="location"
+        label="储存位置"
         sortable>
       </el-table-column>
     </el-table>
@@ -33,31 +33,30 @@ export default {
   name: 'TableForWuzi2',
   data () {
     return {
-      tableData: [{
-        className: '口罩1',
-        wuziName: '一次性医用口罩1',
-        warningNum: '488',
-        availNum: '530',
-        physicalCode: 'Ax1211233'
-      }, {
-        className: '口罩2',
-        wuziName: '一次性医用口罩',
-        warningNum: '488',
-        availNum: '530',
-        physicalCode: 'Ax1211233'
-      }, {
-        className: '口罩',
-        wuziName: '一次性医用口罩',
-        warningNum: '488',
-        availNum: '530',
-        physicalCode: 'Ax1211233'
-      }, {
-        className: '口罩',
-        wuziName: '一次性医用口罩',
-        warningNum: '488',
-        availNum: '530',
-        physicalCode: 'Ax1211233'
-      }]
+
+    }
+  },
+  created() {
+    this.getWuziMessage()
+  },
+  methods: {
+    getWuziMessage() {
+      this.request.post('/',null, {
+        headers: {
+          'serviceId':'GET_EXPEND_GOODS'
+        }
+      }).then(res=>{
+        console.log(res)
+        if (res.code === 200){
+
+        }
+        else if(res.code === 400){
+
+        }
+        else if (res.code === 300){
+
+        }
+      })
     }
   }
 }

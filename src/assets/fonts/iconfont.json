@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "5732292",
+      "name": "扫码",
+      "font_class": "code",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "3239735",
+      "name": "调拨入库",
+      "font_class": "tiaoboruku",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "18655280",
+      "name": "已到货",
+      "font_class": "yidaohuo",
+      "unicode": "e6cb",
+      "unicode_decimal": 59083
+    },
+    {
       "icon_id": "1367343",
       "name": "资产",
       "font_class": "zichan",
