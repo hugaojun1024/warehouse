@@ -7,8 +7,13 @@
         border
         :cell-style="columnStyle"
         style="width: 100%; margin-top: 20px"
+        @cell-click="handleCellClick"
       >
-        <el-table-column prop="name" align="center"></el-table-column>
+        <el-table-column prop="name" align="center">
+          <template slot-scope="scope">
+            <span :style="{ color: scope.row.name === '*到货项数*' ? 'blue' : '' }">{{ scope.row.name }}</span>
+          </template>
+        </el-table-column>
         <el-table-column prop="value" align="center"></el-table-column>
       </el-table>
     </section>
@@ -26,7 +31,7 @@ export default {
           value: "双港站"
         },
         {
-          name: "**名称",
+          name: "名称",
           value: '00001',
         },
         {
@@ -34,7 +39,7 @@ export default {
           value: 'Ax1210200c',
         },
         {
-          name: "到货项数+点开可以查看清单",
+          name: "*到货项数*",
           value: '121',
         },
         {
@@ -58,7 +63,12 @@ export default {
         return "background:#ffffff;";
       }
     },
-
+    handleCellClick(row, column, event) {
+      if (row.name === '*到货项数*') {
+        // Redirect to the desired link when the "到货项数" cell is clicked
+        window.location.href = '/DetailedList'; // Replace with your desired link
+      }
+    },
   }
 };
 </script>

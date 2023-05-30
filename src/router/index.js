@@ -21,6 +21,7 @@ import AboutApp from "@/views/AboutApp.vue";
 import SuggestionList from "@/views/SuggestionList.vue";
 import MessageTransfer from "@/views/MessageTransfer";
 import MessageArrival from "@/views/MessageArrival";
+import DetailedList from "@/views/DetailedList";
 
 import suggestView from "@/views/SuggestView";
 Vue.use(VueRouter)
@@ -120,6 +121,10 @@ export default new VueRouter({
     {
       path:"/messageArrival",
       component:MessageArrival
+    },
+    {
+      path:"/detailedList",
+      component:DetailedList
     }
   ]
 })

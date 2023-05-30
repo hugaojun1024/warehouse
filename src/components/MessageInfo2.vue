@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header">
-      <HeaderCompHasExit :url="'/messageArrival'"></HeaderCompHasExit>
+      <HeaderCompHasExit :url="'/messageTransfer'"></HeaderCompHasExit>
     </div>
     <div class="content">
       <div class="message-title">

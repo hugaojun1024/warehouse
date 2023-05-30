@@ -19,9 +19,6 @@
         </div>
       </div>
     </div>
-    <div>
-      <NavigatorBar index="2"></NavigatorBar>
-    </div>
   </div>
 </template>
 

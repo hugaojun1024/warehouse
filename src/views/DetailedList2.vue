@@ -4,7 +4,7 @@
       <HeaderCompHasExit url="/"></HeaderCompHasExit>
     </el-header>
     <el-main>
-      <TableForWarning></TableForWarning>
+      <TableForWuzi></TableForWuzi>
     </el-main>
     <el-footer style="text-align: center">
       <el-pagination
@@ -18,25 +18,15 @@
 
 <script>
 import HeaderCompHasExit from "@/components/HeaderCompHasExit.vue";
-import TableForWarning from '@/components/TableForWarning'
+import TableForWuzi from '@/components/TableForWuzi'
 export default {
-  name: 'inventoryWarning',
-  components: { HeaderCompHasExit, TableForWarning }
+  name: "DetailedList",
+  components: { HeaderCompHasExit, TableForWuzi }
 }
 </script>
 
-<style lang="less" scoped>
-  .el-header {
-    padding: initial;
-  }
-  .input-xx {
-    //float: left;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .el-input {
-    width: 520px;
-    margin-right: 20px;
-  }
+<style scoped>
+.el-header {
+  padding: initial;
+}
 </style>
