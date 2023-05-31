@@ -6,7 +6,7 @@
     <div class="content">
       <div class="message-content">
         <div class="message-item" v-for="item in messageData">
-          <a :href="'/message_info?messageId=' + item.messageId">
+          <a :href="'/message_info2?messageId=' + item.messageId">
             <div class="message-img">
               <img style="margin-left: 30px" src="../assets/message.png" width="30px" height="30px">
             </div>

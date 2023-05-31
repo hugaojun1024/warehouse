@@ -22,7 +22,8 @@ import SuggestionList from "@/views/SuggestionList.vue";
 import MessageTransfer from "@/views/MessageTransfer";
 import MessageArrival from "@/views/MessageArrival";
 import DetailedList from "@/views/DetailedList";
-
+import MessageInfo2 from "@/components/MessageInfo2";
+import QRcode from "@/views/QRcode";
 import suggestView from "@/views/SuggestView";
 Vue.use(VueRouter)
 
@@ -125,6 +126,14 @@ export default new VueRouter({
     {
       path:"/detailedList",
       component:DetailedList
+    },
+    {
+      path:"/Message_Info2",
+      component:MessageInfo2
+    },
+    {
+      path:"/qrcode",
+      component:QRcode
     }
   ]
 })

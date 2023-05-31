@@ -35,13 +35,13 @@
               </li>
             </a>
             <a href="/zicanView">
-              <li style="background-image: linear-gradient(#DE868F,#bd4c40)">
+              <li style="background-image: linear-gradient(#e76379,#ee8470)">
                 <img src="../assets/资产 (1).png">
                 <span>固定资产查询</span>
               </li>
             </a>
             <a v-if="suggestViewFlag" href="/suggestView">
-              <li style="background-image: linear-gradient(#efb73f,#b7933b)">
+              <li style="background-image: linear-gradient(#f2c047,#ee9446)">
                 <img src="../assets/意见反馈.png">
                 <span>反馈建议专栏</span>
               </li>

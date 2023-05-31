@@ -5,7 +5,7 @@
         <a href="/" :style="home">
           <li class="iconfont icon-shouye"><span>首页</span></li>
         </a>
-        <a :style="message" href="/message">
+        <a :style="message" href="/qrcode">
           <li class="iconfont icon-code"><span>扫描资产码</span></li>
         </a>
         <a :style="profile" href="/user_profile">

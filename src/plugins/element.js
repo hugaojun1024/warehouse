@@ -18,7 +18,10 @@ import {
   Upload,
   Result,
   CheckboxGroup,
-  Pagination
+  Pagination,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem
 } from 'element-ui'
 
 Vue.use(Button)
@@ -40,5 +43,8 @@ Vue.use(Upload)
 Vue.use(Result)
 Vue.use(CheckboxGroup)
 Vue.use(Pagination)
+Vue.use(Dropdown)
+Vue.use(DropdownMenu)
+Vue.use(DropdownItem)
 
 
