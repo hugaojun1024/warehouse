@@ -14,7 +14,7 @@
       <div class="message-content">
 <!--        <p>{{messageInfo.messageContext}}</p>-->
 <!--        <button class ="depart">设备信息</button>-->
-        <transverse-table2 :tableData="table_data"></transverse-table2>
+        <transverse-table3 :tableData="table_data"></transverse-table3>
       </div>
     </div>
   </div>
@@ -22,21 +22,21 @@
 
 <script>
 import HeaderCompHasExit from "@/components/HeaderCompHasExit.vue";
-import TransverseTable2 from "@/components/TransverseTable2";
+import TransverseTable3 from "@/components/TransverseTable3";
 import axios from "axios";
 export default {
   name: "MessageInfo",
   components:{
     HeaderCompHasExit,
-    TransverseTable2
+    TransverseTable3
   },
   data(){
     return {
       messageInfo:{
         messageId:2,
-        messageTitle:'到货信息提醒推送2',
+        messageTitle:'调拨信息提醒推送2',
         messageContext:'通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容',
-        messageTime:'2022-12-16',
+        messageTime:'2023年5月11日',
         messageFrom:'管理员'
       },
       messageId:0

@@ -36,7 +36,7 @@ export default {
         messageId:2,
         messageTitle:'到货信息提醒推送2',
         messageContext:'通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容',
-        messageTime:'2022-12-16',
+        messageTime:'2023年5月11日',
         messageFrom:'管理员'
       },
       messageId:0

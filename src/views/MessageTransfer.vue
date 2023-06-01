@@ -44,21 +44,21 @@ export default {
           messageId:1,
           messageTitle:'物资调拨信息提醒推送1',
           messageContext:'通知内容',
-          messageTime:'2023-02-01',
+          messageTime:'2023月5月1日',
           messageFrom:'管理员'
         },
         {
           messageId:2,
           messageTitle:'物资调拨信息提醒推送2',
           messageContext:'通知内容',
-          messageTime:'2022-12-16',
+          messageTime:'2023月5月1日',
           messageFrom:'管理员'
         },
         {
           messageId:3,
           messageTitle:'物资调拨信息提醒推送3',
           messageContext:'通知内容',
-          messageTime:'2022-12-01',
+          messageTime:'2023月5月1日',
           messageFrom:'管理员'
         }
       ]
