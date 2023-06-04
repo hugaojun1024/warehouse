@@ -19,7 +19,11 @@ import test from "@/components/test.vue";
 import NavigatorBar from "@/components/NavigatorBar"
 import AboutApp from "@/views/AboutApp.vue";
 import SuggestionList from "@/views/SuggestionList.vue";
-
+import MessageTransfer from "@/views/MessageTransfer";
+import MessageArrival from "@/views/MessageArrival";
+import DetailedList from "@/views/DetailedList";
+import MessageInfo2 from "@/components/MessageInfo2";
+import QRcode from "@/views/QRcode";
 import suggestView from "@/views/SuggestView";
 Vue.use(VueRouter)
 
@@ -110,6 +114,26 @@ export default new VueRouter({
     {
       path:"/suggestion_list",
       component:SuggestionList
+    },
+    {
+      path:"/messageTransfer",
+      component:MessageTransfer
+    },
+    {
+      path:"/messageArrival",
+      component:MessageArrival
+    },
+    {
+      path:"/detailedList",
+      component:DetailedList
+    },
+    {
+      path:"/Message_Info2",
+      component:MessageInfo2
+    },
+    {
+      path:"/qrcode",
+      component:QRcode
     }
   ]
 })

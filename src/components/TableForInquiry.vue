@@ -5,11 +5,6 @@
       stripe
       class="wuzi-table">
       <el-table-column
-        prop="className"
-        label="分类名称"
-        sortable>
-      </el-table-column>
-      <el-table-column
         prop="wuziName"
         label="物资名称"
         sortable>
@@ -20,8 +15,13 @@
         sortable>
       </el-table-column>
       <el-table-column
-        prop="availNum"
-        label="可用值"
+        prop="numInStork"
+        label="库存数量"
+        sortable>
+      </el-table-column>
+      <el-table-column
+        prop="location"
+        label="储存位置"
         sortable>
       </el-table-column>
     </el-table>
@@ -30,33 +30,29 @@
 
 <script>
 export default {
-  name: 'TableForWuzi2',
+  name: 'TableForInquiry',
   data () {
     return {
       tableData: [{
-        className: '口罩1',
-        wuziName: '一次性医用口罩1',
-        warningNum: '488',
-        availNum: '530',
-        physicalCode: 'Ax1211233'
-      }, {
-        className: '口罩2',
         wuziName: '一次性医用口罩',
-        warningNum: '488',
-        availNum: '530',
-        physicalCode: 'Ax1211233'
+        numInStork: '530',
+        physicalCode: 'Ax1211233',
+        location:'地铁大厦站'
       }, {
-        className: '口罩',
         wuziName: '一次性医用口罩',
-        warningNum: '488',
-        availNum: '530',
-        physicalCode: 'Ax1211233'
+        numInStork: '530',
+        physicalCode: 'Ax1211233',
+        location:'地铁大厦站'
       }, {
-        className: '口罩',
         wuziName: '一次性医用口罩',
-        warningNum: '488',
-        availNum: '530',
-        physicalCode: 'Ax1211233'
+        numInStork: '530',
+        physicalCode: 'Ax1211233',
+        location:'地铁大厦站'
+      }, {
+        wuziName: '一次性医用口罩',
+        numInStork: '530',
+        physicalCode: 'Ax1211233',
+        location:'地铁大厦站'
       }]
     }
   }

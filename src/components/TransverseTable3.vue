@@ -27,28 +27,20 @@ export default {
     return {
       tableData:[
         {
-          name: "到货仓库",
+          name: "调拨申请车间",
           value: "双港站"
         },
         {
-          name: "名称",
-          value: '00001',
+          name: "物资类别",
+          value: '防疫用品',
         },
         {
-          name: "采购订单号",
-          value: 'Ax1210200c',
+          name: "调拨项数",
+          value: '200',
         },
         {
-          name: "*到货项数*",
-          value: '121',
-        },
-        {
-          name: "到货时间",
-          value: "2023年5月1日",
-        },
-        {
-          name: "验收截止时间",
-          value: "2023年5月8日",
+          name: "调拨申请时间",
+          value: '2023年5月11日',
         }
       ]
     };

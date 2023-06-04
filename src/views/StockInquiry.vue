@@ -8,7 +8,7 @@
         <el-input v-model="input" placeholder="请输入物资名称或实物码" suffix-icon="iconfont icon-sousuo"></el-input>
         <el-button>搜索</el-button>
       </div>
-      <TableForWuzi2></TableForWuzi2>
+      <TableForInquiry></TableForInquiry>
     </el-main>
     <el-footer style="text-align: center">
       <el-pagination
@@ -22,10 +22,10 @@
 
 <script>
 import HeaderCompHasExit from "@/components/HeaderCompHasExit.vue";
-import TableForWuzi2 from '@/components/TableForWuzi2'
+import TableForInquiry from '@/components/TableForInquiry'
 export default {
   name: 'inventoryWarning',
-  components: { HeaderCompHasExit, TableForWuzi2 }
+  components: { HeaderCompHasExit, TableForInquiry }
 }
 </script>
 

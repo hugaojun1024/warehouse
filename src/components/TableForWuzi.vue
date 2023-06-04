@@ -1,4 +1,3 @@
-
 <template>
   <div class="table2">
     <el-table
@@ -6,27 +5,19 @@
       stripe
       class="wuzi-table">
       <el-table-column
-        prop="className"
-        label="分类名称"
-      sortable>
+        prop="ItemName"
+        label="物品名称"
+        sortable>
       </el-table-column>
       <el-table-column
-        prop="wuziName"
-        label="物资名称"
-      sortable>
+        prop="numInIncoming"
+        label="到货数量"
+        sortable>
       </el-table-column>
       <el-table-column
-        prop="warningNum"
-        label="预警值"
-      sortable>
-<!--        <template slot-scope="scope">-->
-<!--          <span :style="{ color: 'red' }">{{ scope.row.warningNum }}</span>-->
-<!--        </template>-->
-      </el-table-column>
-      <el-table-column
-        prop="availNum"
-        label="可用值"
-      sortable>
+        prop="unit"
+        label="单位"
+        sortable>
       </el-table-column>
     </el-table>
   </div>
@@ -34,37 +25,31 @@
 
 <script>
 export default {
-  name: 'TableForWuzi',
+  name: "TableForWuzi",
   data () {
     return {
       tableData: [{
-        className: '口罩',
-        wuziName: '一次性医用口罩',
-        warningNum: '488',
-        availNum: '530'
+        ItemName: '一次性医用口罩',
+        numInIncoming: '20',
+        unit:'箱'
       }, {
-        className: '口罩',
-        wuziName: '一次性医用口罩',
-        warningNum: '488',
-        availNum: '530'
+        ItemName: '酒精消毒水',
+        numInIncoming: '88',
+        unit:'瓶'
       }, {
-        className: '口罩',
-        wuziName: '一次性医用口罩',
-        warningNum: '488',
-        availNum: '530'
+        ItemName: '防疫服',
+        numInIncoming: '12',
+        unit:'件'
       }, {
-        className: '口罩',
-        wuziName: '一次性医用口罩',
-        warningNum: '488',
-        availNum: '530'
+        ItemName: '防汛沙袋',
+        numInIncoming: '10',
+        unit:'个'
       }]
     }
   }
 }
 </script>
 
-<style lang="less">
-th.el-table_1_column_3 .cell{
-  color:#f30;
-}
+<style scoped>
+
 </style>

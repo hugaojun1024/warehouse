@@ -6,6 +6,8 @@ import './plugins/element.js'
 import './assets/css/global.css'
 import './assets/fonts/iconfont.css'
 import request from "../utils/request";
+import request2 from "../utils/request"
+
 // 配置请求的根路径
 Vue.prototype.request = request
 Vue.config.productionTip = false
