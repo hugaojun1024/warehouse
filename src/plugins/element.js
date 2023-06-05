@@ -21,10 +21,12 @@ import {
   Pagination,
   Dropdown,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Loading
 } from 'element-ui'
 
 Vue.use(Button)
+Vue.use(Loading.directive)
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Input)

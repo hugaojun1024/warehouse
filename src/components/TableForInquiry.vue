@@ -5,22 +5,22 @@
       stripe
       class="wuzi-table">
       <el-table-column
-        prop="wuziName"
+        prop="matName"
         label="物资名称"
         sortable>
       </el-table-column>
       <el-table-column
-        prop="physicalCode"
+        prop="matCode"
         label="实物码"
         sortable>
       </el-table-column>
       <el-table-column
-        prop="numInStork"
+        prop="stockNum"
         label="库存数量"
         sortable>
       </el-table-column>
       <el-table-column
-        prop="location"
+        prop="storageLocation"
         label="储存位置"
         sortable>
       </el-table-column>
@@ -31,30 +31,14 @@
 <script>
 export default {
   name: 'TableForInquiry',
+  props:['tableData'],
   data () {
     return {
-      tableData: [{
-        wuziName: '一次性医用口罩',
-        numInStork: '530',
-        physicalCode: 'Ax1211233',
-        location:'地铁大厦站'
-      }, {
-        wuziName: '一次性医用口罩',
-        numInStork: '530',
-        physicalCode: 'Ax1211233',
-        location:'地铁大厦站'
-      }, {
-        wuziName: '一次性医用口罩',
-        numInStork: '530',
-        physicalCode: 'Ax1211233',
-        location:'地铁大厦站'
-      }, {
-        wuziName: '一次性医用口罩',
-        numInStork: '530',
-        physicalCode: 'Ax1211233',
-        location:'地铁大厦站'
-      }]
     }
+  },
+  created() {
+  },
+  methods:{
   }
 }
 </script>
