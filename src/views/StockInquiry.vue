@@ -5,10 +5,10 @@
     </el-header>
     <el-main>
       <div class="input-xx">
-        <el-input v-model="pageInfo.matName" placeholder="请输入物资名称或实物码" suffix-icon="iconfont icon-sousuo"></el-input>
+        <el-input v-model="pageInfo.matName" placeholder="请输入物资名称" suffix-icon="iconfont icon-sousuo"></el-input>
         <el-button @click="load" v-loading.fullscreen.lock="loading">搜索</el-button>
       </div>
-      <TableForInquiry  :tableData="tableData"></TableForInquiry>
+      <TableForInquiry :tableData="tableData"></TableForInquiry>
     </el-main>
     <el-footer style="text-align: center">
       <el-pagination
