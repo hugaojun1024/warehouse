@@ -6,7 +6,7 @@
       stripe
       class="wuzi-table">
       <el-table-column
-        prop="wuziName"
+        prop="matName"
         label="物资名称"
       sortable>
       </el-table-column>
@@ -16,7 +16,7 @@
       sortable>
       </el-table-column>
       <el-table-column
-        prop="numInStork"
+        prop="stockNum"
         label="仓库数量"
       sortable>
       </el-table-column>
@@ -27,29 +27,10 @@
 <script>
 export default {
   name: 'TableForWuzi',
+  props:['tableData'],
   data () {
     return {
-      tableData: [{
-        className: '口罩',
-        wuziName: '一次性医用口罩',
-        warningNum: '488',
-        numInStork: '530'
-      }, {
-        className: '口罩',
-        wuziName: '一次性医用口罩',
-        warningNum: '488',
-        numInStork: '530'
-      }, {
-        className: '口罩',
-        wuziName: '一次性医用口罩',
-        warningNum: '488',
-        numInStork: '530'
-      }, {
-        className: '口罩',
-        wuziName: '一次性医用口罩',
-        warningNum: '488',
-        numInStork: '530'
-      }]
+
     }
   }
 }
