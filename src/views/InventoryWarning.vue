@@ -4,12 +4,12 @@
       <HeaderCompHasExit url="/"></HeaderCompHasExit>
     </el-header>
     <el-main>
-      <el-dropdown>
+      <el-dropdown trigger="click">
         <span class="el-dropdown-link">
           下拉菜单选择仓库<i class="el-icon-arrow-down el-icon--right"></i>
         </span>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item divided @click.native="redirectToDTDS" v-loading.fullscreen.lock="loading">
+        <el-dropdown-menu slot="dropdown" >
+          <el-dropdown-item  @click.native="redirectToDTDS" v-loading.fullscreen.lock="loading" >
 <!--            <router-link to="https://www.baidu.com" target="_blank">地铁大厦站</router-link>-->
             地铁大厦站
           </el-dropdown-item>
@@ -56,7 +56,7 @@ export default {
       this.loading = true
       this.request.get("/request_data_forwarding/stock_inquiryBySL?storageLocation=01B020402(02-03-01)").then((res)=>{
         this.data = res.objectData
-        console.log("data" + this.data)
+        // console.log("data" + this.data)
         this.pageInfo.total = this.data.length
         this.page()
       }).finally(()=>{
@@ -73,10 +73,10 @@ export default {
       }
       let start = (this.pageInfo.pageNum - 1) * this.pageInfo.pageSize
       let end = start + this.pageInfo.pageSize
-      console.log(this.pageInfo)
-      console.log(start + "  " + end)
+      // console.log(this.pageInfo)
+      // console.log(start + "  " + end)
       this.tableData = this.data.slice(start,end)
-      console.log(this.tableData)
+      // console.log(this.tableData)
       this.loading = false
     }
   }

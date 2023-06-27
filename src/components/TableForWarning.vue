@@ -10,10 +10,18 @@
         label="物资名称"
       sortable>
       </el-table-column>
+<!--      <el-table-column-->
+<!--        prop="warningNum"-->
+<!--        label="预警值"-->
+<!--      sortable>-->
+<!--      </el-table-column>-->
       <el-table-column
         prop="warningNum"
         label="预警值"
-      sortable>
+        sortable>
+        <template slot-scope="scope">
+          <el-input v-model="datalist.warningNum" size="mini"></el-input>
+        </template>
       </el-table-column>
       <el-table-column
         prop="stockNum"
@@ -30,7 +38,26 @@ export default {
   props:['tableData'],
   data () {
     return {
-
+      datalist:{
+        warningNum:"6",
+      }
+    }
+  },
+  created() {
+    this.saveData();
+  },
+  methods: {
+    saveData() {
+      const saveData = [];
+      console.log(111111)
+      this.tableData.forEach(row => {
+        const materialName = row.matName;
+        const warningValue = this.datalist.warningNum;
+        console.log("materialName" + materialName);
+        console.log("warningValue" + warningValue);
+        saveData.push({materialName, warningValue});
+      })
+      console.log("saveData" + this.saveData)
     }
   }
 }
