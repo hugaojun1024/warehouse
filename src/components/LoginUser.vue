@@ -22,16 +22,18 @@
         </div>
       </div>
     </el-main>
-   <!--底部区域-->
-   <el-footer>
-     <NavigatorBar></NavigatorBar>
-   </el-footer>
+    <!--底部区域-->
+    <el-footer>
+      <NavigatorBar></NavigatorBar>
+    </el-footer>
   </el-container>
 </template>
 
 <script>
 import NavigatorBar from "@/components/NavigatorBar";
 import HeaderComp from '@/components/HeaderComp';
+// import { mapMutations } from 'vuex';
+
 export default {
   name: 'loginUser',
   components: {
@@ -61,97 +63,120 @@ export default {
     }
   },
   methods: {
+    login () {
+      // console.log(this.loginForm)
+      // this.request.post("/user/login",this.loginForm).then(res=>{
+      //   console.log(res)
+      //   if (res.code == 200){
+      //     //用户名密码校验成功
+      //     //存储账户信息
+      //     console.log("ok")
+      //     localStorage.setItem("userLoginInfo",JSON.stringify(res.data))
+      //     const token  = localStorage.getItem("userLoginInfo");
+      //     console.log(token);
+      //     this.$router.push("/qrcode")
+      //   }
+      //   else if(res.code == 400){
+      //     //登陆失败
+      //     this.$message.error(res.msg)
+      //   }
+      //   else if (res.code == 300){
+      //     //
+      //     this.$message.error("您输入的用户名或密码为空")
+      //   }
+      // })
+
+      let _this = this;
+      if (this.loginForm.username === "" || this.loginForm.password === "") {
+        this.$message.error("账号或密码不能为空");
+      } else {
+        this.request.post("/user/login", this.loginForm).then(res=>{
+          console.log(res);
+          const token = res.data;
+          // console.log(token)
+          // 将用户token保存到vuex中
+          // _this.changeLogin({ Authorization: _this.userToken });
+          localStorage.setItem("token",token);
+          _this.$router.push('/');
+          // alert('登陆成功');
+          this.$message.success("欢迎访问");
+        }).catch(error => {
+          this.$message.error("账号或密码错误");
+          console.log(error);
+        })
+      }
+    },
     // 点击重置按钮，重置登录表单
     resetLoginForm () {
       // console.log(this);
       this.$refs.loginFormRef.resetFields()
-    },
-    login () {
-      console.log(this.loginForm)
-      this.request.post("/user/login",this.loginForm).then(res=>{
-        console.log(res)
-        if (res.code == 200){
-          //用户名密码校验成功
-          //存储账户信息
-          localStorage.setItem("userLoginInfo",JSON.stringify(res.data))
-          this.$router.push("/user_profile")
-        }
-        else if(res.code == 400){
-          //登陆失败
-          this.$message.error(res.msg)
-        }
-        else if (res.code == 300){
-          //
-          this.$message.error("您输入的用户名或密码为空")
-        }
-      })
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-  .login_container {
-    height: 100%;
-  }
-  .el-header {
-    padding: initial;
-  }
-  .login_box {
-    width: 100%;
-    height: 300px;
-    background-color: #fff;
-    border-radius: 3px;
+.login_container {
+  height: 100%;
+}
+.el-header {
+  padding: initial;
+}
+.login_box {
+  width: 100%;
+  height: 300px;
+  background-color: #fff;
+  border-radius: 3px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  .avatar_box {
+    height: 130px;
+    width: 130px;
+    border: 1px solid #eee;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 0 10px #ddd;
     position: absolute;
     left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%);
-
-    .avatar_box {
-      height: 130px;
-      width: 130px;
-      border: 1px solid #eee;
+    background-color: #fff;
+    img {
+      width: 100%;
+      height: 100%;
       border-radius: 50%;
-      padding: 10px;
-      box-shadow: 0 0 10px #ddd;
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
-      img {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        background-color: #eee;
-      }
+      background-color: #eee;
     }
   }
-  .el-input{
-    width: 80%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  .login_form {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 0 20px;
-    box-sizing: border-box;
-  }
-  .btns {
-    display: flex;
-    justify-content: flex-end;
-  }
-  //.footer{
-  //  width: 100%;
-  //  position: fixed;
-  //  top: calc(100vh - 60px);
-  //  left: 0px;
-  //  text-align: center;
-  //}
-  .wrap{
-    width: 100%;
-    text-align: center;
-    margin-top: 80px;
-  }
+}
+.el-input{
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.login_form {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.btns {
+  display: flex;
+  justify-content: flex-end;
+}
+//.footer{
+//  width: 100%;
+//  position: fixed;
+//  top: calc(100vh - 60px);
+//  left: 0px;
+//  text-align: center;
+//}
+.wrap{
+  width: 100%;
+  text-align: center;
+  margin-top: 80px;
+}
 </style>

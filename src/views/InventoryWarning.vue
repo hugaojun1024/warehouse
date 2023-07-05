@@ -54,7 +54,7 @@ export default {
   methods: {
     redirectToDTDS() {
       this.loading = true
-      this.request.get("/request_data_forwarding/stock_inquiryBySL?storageLocation=01B020402(02-03-01)").then((res)=>{
+      this.request.get("/request_data_forwarding/stock_inquiryBySL?storageLocation=01A01").then((res)=>{
         this.data = res.objectData
         // console.log("data" + this.data)
         this.pageInfo.total = this.data.length

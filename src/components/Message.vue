@@ -35,9 +35,9 @@ export default {
     NavigatorBar
   },
   created() {
-    if (this.userLoginInfo.userId == null){
-      this.$router.push("/loginUser")
-    }
+    // if (this.userLoginInfo.userId == null){
+    //   this.$router.push("/loginUser")
+    // }
   },
   data(){
     return {

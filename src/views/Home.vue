@@ -75,9 +75,9 @@ export default {
     }
   },
   created() {
-    if (this.userLoginInfo.userId == null){
-      this.$router.push("/loginUser")
-    }
+    // if (this.userLoginInfo.userId == null){
+    //   this.$router.push("/loginUser")
+    // }
   },
   mounted() {
     if (this.userLoginInfo.role == 1){

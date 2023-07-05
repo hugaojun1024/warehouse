@@ -45,7 +45,7 @@ export default {
           messageId:1,
           messageTitle:'到货信息提醒推送1',
           messageContext:'通知内容',
-          messageTime:'2023月5月1日',
+          messageTime:"2023月5月1日",
           messageFrom:'管理员'
         },
         {
@@ -66,7 +66,8 @@ export default {
     }
   }
 }
-var websocket = null;
+
+let websocket = null;
 
 //判断当前浏览器是否支持WebSocket
 if('WebSocket' in window){

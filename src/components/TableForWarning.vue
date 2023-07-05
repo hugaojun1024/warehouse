@@ -1,4 +1,3 @@
-
 <template>
   <div class="table2">
     <el-table
@@ -39,7 +38,7 @@ export default {
   data () {
     return {
       datalist:{
-        warningNum:"6",
+        warningNum:"7",
       }
     }
   },

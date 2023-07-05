@@ -35,9 +35,10 @@ export default {
     }
   },
   created() {
-    if (this.userLoginInfo.userId == null){
-      this.$router.push("/loginUser")
-    }
+    // if (this.userLoginInfo.userId == null){
+    //   console.log(null);
+    //   this.$router.push("/loginUser")
+    // }
   },
   mounted() {
 
@@ -45,8 +46,8 @@ export default {
   methods:{
     logout(){
       //清除本地保存的用户登录信息
-      if (localStorage.getItem("userLoginInfo") != null){
-        localStorage.removeItem("userLoginInfo")
+      if (localStorage.getItem("token") != null){
+        localStorage.removeItem("token")
       }
       this.$router.push("/loginUser")
     },
