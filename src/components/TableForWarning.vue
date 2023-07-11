@@ -60,14 +60,13 @@ export default {
           batchNo: row.batchNo,
           warningNum: row.warningNum
         }).then(res=>{
-          if (res.code == 200){
+          if (res.code == '200'){
 
           }
+        }).finally(()=>{
+          this.$message.success("已自动保存")
         })
-        this.$message.success("已自动保存")
       }
-
-
     }
   }
 }
