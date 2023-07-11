@@ -13,6 +13,7 @@ import {
   Carousel,
   Image,
   CarouselItem,
+  Tag,
   Table,
   TableColumn,
   Upload,
@@ -48,5 +49,6 @@ Vue.use(Pagination)
 Vue.use(Dropdown)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
+Vue.use(Tag)
 
 

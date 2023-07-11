@@ -28,8 +28,9 @@ request.interceptors.response.use(
   ({ response }) => {
     const {status, data} = response;
     const {message} = data;
-    Message.error(message);
-    if (status === 401) router.push('/loginUser');
+    console.log(message)
+    Message.error("请先登录以获得访问权限");
+    if (status === 401 || status === 500) router.push('/loginUser');
     return Promise.reject(error);
   }
   // response => {

@@ -49,8 +49,7 @@ export default {
     load(){
       this.loading = true
       this.request.get("/request_data_forwarding/stock_inquiry?matName=" + this.pageInfo.matName).then((res)=>{
-        console.log(res)
-        this.data = res.objectData
+        this.data = res.data.objectData
         this.pageInfo.total = this.data.length
         this.page()
       }).finally(()=>{

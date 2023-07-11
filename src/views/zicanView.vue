@@ -161,9 +161,9 @@ export default {
       this.loading = true
       if (this.pageInfo.unitCode !== '') {
         this.request.get("/request_data_forwarding/property_inquiry?unitCode=" + this.pageInfo.unitCode).then((res)=>{
-          console.log("load 返回 "+res)
-          console.log(res.objectData[0])
-          this.tableData = res.objectData
+          // console.log("load 返回 "+res)
+          // console.log(res.data.objectData[0])
+          this.tableData = res.data.objectData
           // console.log(this.data)
           // this.tableData = this.data
           // console.log(this.tableData)

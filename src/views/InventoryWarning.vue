@@ -8,6 +8,7 @@
         <span class="el-dropdown-link">
           下拉菜单选择仓库<i class="el-icon-arrow-down el-icon--right"></i>
         </span>
+        <el-tag type="warning">{{selectedStation}}</el-tag>
         <el-dropdown-menu slot="dropdown" >
           <el-dropdown-item  @click.native="redirectToDTDS" v-loading.fullscreen.lock="loading" >
 <!--            <router-link to="https://www.baidu.com" target="_blank">地铁大厦站</router-link>-->
@@ -23,7 +24,7 @@
       <TableForWarning :tableData="tableData"></TableForWarning>
     </el-main>
     <el-footer style="text-align: center">
-      <el-pagination background layout="prev, pager, next" :total="1000"></el-pagination>
+<!--      <el-pagination background layout="prev, pager, next" :total="1000"></el-pagination>-->
     </el-footer>
   </el-container>
 </template>
@@ -45,6 +46,7 @@ export default {
       },
       data:[],
       tableData:[],
+      selectedStation:"未选择仓库", // 添加一个变量用于存储选择的地铁站
       loading:false
     }
   },
@@ -53,31 +55,44 @@ export default {
   },
   methods: {
     redirectToDTDS() {
+      this.selectedStation = "地铁大厦站"; // 当选择了地铁大厦站时，更新 selectedStation 变量
       this.loading = true
       this.request.get("/request_data_forwarding/stock_inquiryBySL?storageLocation=01A01").then((res)=>{
-        this.data = res.objectData
+        this.tableData = res.data.objectData;
+        // console.log(res)
         // console.log("data" + this.data)
-        this.pageInfo.total = this.data.length
-        this.page()
+        // this.pageInfo.total = this.data.length
+        // this.page()
       }).finally(()=>{
+
       })
       this.loading = false
     },
     redirectToXZNGG() {
-      window.location.href = 'https://www.baidu.com';
-    },
-    page(currentPage){
+      this.selectedStation = "西站南广场站"; // 当选择了西站南广场站时，更新 selectedStation 变量
       this.loading = true
-      if (currentPage != null){
-        this.pageInfo.pageNum = currentPage
-      }
-      let start = (this.pageInfo.pageNum - 1) * this.pageInfo.pageSize
-      let end = start + this.pageInfo.pageSize
-      // console.log(this.pageInfo)
-      // console.log(start + "  " + end)
-      this.tableData = this.data.slice(start,end)
-      // console.log(this.tableData)
+      this.request.get("/request_data_forwarding/stock_inquiryBySL?storageLocation=01A02").then((res)=>{
+        this.tableData = res.data.objectData;
+        // console.log(res)
+        // console.log("data" + this.data)
+        // this.pageInfo.total = this.data.length
+        // this.page()
+      }).finally(()=>{
+      })
       this.loading = false
+    // },
+    // page(currentPage){
+    //   this.loading = true
+    //   if (currentPage != null){
+    //     this.pageInfo.pageNum = currentPage
+    //   }
+    //   let start = (this.pageInfo.pageNum - 1) * this.pageInfo.pageSize
+    //   let end = start + this.pageInfo.pageSize
+    //   // console.log(this.pageInfo)
+    //   // console.log(start + "  " + end)
+    //   this.tableData = this.data.slice(start,end)
+    //   // console.log(this.tableData)
+    //   this.loading = false
     }
   }
 }
@@ -108,4 +123,19 @@ export default {
 .el-icon-arrow-down {
   font-size: 12px;
 }
+
+.el-tag {
+  margin: 0px 0px 0px 20px;
+  padding:0px 52px;
+}
+
+.el-button, .el-dropdown {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.el-tag, .el-tooltip__popper {
+  font-size: 15px;
+}
 </style>
+
