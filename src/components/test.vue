@@ -16,7 +16,7 @@
 export default {
   data () {
     return {
-      checkList: ['选中且禁用','复选框 A'],
+      checkList: ['选中且禁用','复选框  A'],
       datatest:{
         feedBackPerson:"123123",
         dept:"123",
