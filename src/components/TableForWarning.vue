@@ -1,6 +1,7 @@
 <template>
   <div class="table2">
     <el-table
+      v-loading="this.loading"
       :data="tableData"
       stripe
       class="wuzi-table">
@@ -8,18 +9,13 @@
         prop="matName"
         label="物资名称"
       sortable>
-      </el-table-column>
-<!--      <el-table-column-->
-<!--        prop="warningNum"-->
-<!--        label="预警值"-->
-<!--      sortable>-->
-<!--      </el-table-column>-->
+      </el-table-column>>
       <el-table-column
         prop="warningNum"
         label="预警值"
         sortable>
         <template slot-scope="scope">
-          <el-input v-model="datalist.warningNum" size="mini"></el-input>
+          <el-input @blur="saveWarning(scope.row)" type="text" v-model="scope.row.warningNum"/>
         </template>
       </el-table-column>
       <el-table-column
@@ -34,7 +30,7 @@
 <script>
 export default {
   name: 'TableForWuzi',
-  props:['tableData'],
+  props:['tableData','loading'],
   data () {
     return {
       datalist:{
@@ -57,6 +53,21 @@ export default {
         saveData.push({materialName, warningValue});
       })
       console.log("saveData" + this.saveData)
+    },
+    saveWarning(row){
+      if (row.warningNum != null){
+        this.request.post("/warning/set_warning_num",{
+          batchNo: row.batchNo,
+          warningNum: row.warningNum
+        }).then(res=>{
+          if (res.code == 200){
+
+          }
+        })
+        this.$message.success("已自动保存")
+      }
+
+
     }
   }
 }

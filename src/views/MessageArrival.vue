@@ -71,7 +71,7 @@ let websocket = null;
 
 //判断当前浏览器是否支持WebSocket
 if('WebSocket' in window){
-  websocket = new WebSocket("ws://localhost:8081/api/websocket");
+  websocket = new WebSocket("ws://localhost:8081/websocket");
 }else{
   alert('Not support websocket')
 }
@@ -90,6 +90,7 @@ websocket.onopen = function(event){
 websocket.onmessage = function(event){
   console.log("event.data" + event.data)
   this.messageData = event.data;
+  alert(123)
   // setMessageInnerHTML(event.data);
   // $(".progress-bar").attr("style","width:"+event.data+"%")
 }

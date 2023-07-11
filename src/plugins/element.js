@@ -23,7 +23,8 @@ import {
   Dropdown,
   DropdownMenu,
   DropdownItem,
-  Loading
+  Loading,
+  Footer
 } from 'element-ui'
 
 Vue.use(Button)
@@ -50,5 +51,5 @@ Vue.use(Dropdown)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
 Vue.use(Tag)
-
+Vue.use(Footer)
 

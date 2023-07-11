@@ -21,10 +21,10 @@
           <el-dropdown-item divided>其他</el-dropdown-item> -->
         </el-dropdown-menu>
       </el-dropdown>
-      <TableForWarning :tableData="tableData"></TableForWarning>
+      <TableForWarning :tableData="tableData" :loading="loading2"></TableForWarning>
     </el-main>
     <el-footer style="text-align: center">
-<!--      <el-pagination background layout="prev, pager, next" :total="1000"></el-pagination>-->
+      <el-pagination background layout="prev, pager, next" :total="pageInfo.total" @current-change="page"></el-pagination>
     </el-footer>
   </el-container>
 </template>
@@ -41,13 +41,13 @@ export default {
       pageInfo:{
         total:10,
         pageNum:1,
-        pageSize:6,
+        pageSize:10,
         // storageLocation:''
       },
       data:[],
       tableData:[],
       selectedStation:"未选择仓库", // 添加一个变量用于存储选择的地铁站
-      loading:false
+      loading2:false
     }
   },
   created() {
@@ -55,44 +55,48 @@ export default {
   },
   methods: {
     redirectToDTDS() {
+      this.loading2 = true
+      console.log(this.loading)
       this.selectedStation = "地铁大厦站"; // 当选择了地铁大厦站时，更新 selectedStation 变量
-      this.loading = true
-      this.request.get("/request_data_forwarding/stock_inquiryBySL?storageLocation=01A01").then((res)=>{
+      this.request.get("/request_data_forwarding/stock_inquiryBySL?storageLocation=01A01&pageNum="+this.pageInfo.pageNum+"&pageSize=" + this.pageInfo.pageSize).then((res)=>{
         this.tableData = res.data.objectData;
+        this.pageInfo.total = res.data.total
         // console.log(res)
         // console.log("data" + this.data)
         // this.pageInfo.total = this.data.length
         // this.page()
       }).finally(()=>{
-
+        this.loading2 = false
       })
-      this.loading = false
+
     },
     redirectToXZNGG() {
+      this.loading2 = true
       this.selectedStation = "西站南广场站"; // 当选择了西站南广场站时，更新 selectedStation 变量
-      this.loading = true
-      this.request.get("/request_data_forwarding/stock_inquiryBySL?storageLocation=01A02").then((res)=>{
+      this.request.get("/request_data_forwarding/stock_inquiryBySL?storageLocation=01A02&pageNum=" + this.pageInfo.pageNum + "&pageSize=" + this.pageInfo.pageSize).then((res) => {
         this.tableData = res.data.objectData;
         // console.log(res)
         // console.log("data" + this.data)
         // this.pageInfo.total = this.data.length
         // this.page()
-      }).finally(()=>{
+      }).finally(() => {
+        this.loading2 = false
       })
-      this.loading = false
+    },
     // },
-    // page(currentPage){
-    //   this.loading = true
-    //   if (currentPage != null){
-    //     this.pageInfo.pageNum = currentPage
-    //   }
-    //   let start = (this.pageInfo.pageNum - 1) * this.pageInfo.pageSize
-    //   let end = start + this.pageInfo.pageSize
-    //   // console.log(this.pageInfo)
-    //   // console.log(start + "  " + end)
-    //   this.tableData = this.data.slice(start,end)
-    //   // console.log(this.tableData)
-    //   this.loading = false
+    page(currentPage){
+      if (currentPage != null){
+        this.pageInfo.pageNum = currentPage
+      }
+      if (this.selectedStation == '地铁大厦站'){
+        this.redirectToDTDS()
+      }
+      if (this.selectedStation == '西站南广场站'){
+        this.redirectToXZNGG()
+      }
+      // console.log(this.pageInfo)
+      // console.log(start + "  " + end)
+      // console.log(this.tableData)
     }
   }
 }
