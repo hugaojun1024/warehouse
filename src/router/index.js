@@ -89,6 +89,7 @@ export default new VueRouter({
     },
     {
       path:'/zicanView',
+      name: 'zicanView',
       component: zicanView
     },
     {

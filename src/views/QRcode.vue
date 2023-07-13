@@ -127,10 +127,19 @@ export default {
         this.showCode(code.data);
         //打印识别出来的地址
         console.log(code.data);
+        const regex = /unitCode=([^&]+)/;
+        const match = code.data.match(regex);
+        const unitCode = match ? match[1] : null;
+        console.log(unitCode);
         //识别成功跳转到资产页面
-        this.$router.push('/zicanView');
+        this.$router.push({
+          name: 'zicanView',
+          query:{
+            unicode: unitCode
+          }
+        });
       } else {
-        alert('识别错误');
+        this.$message.error('识别错误！')
       }
     },
     showCode(code) {

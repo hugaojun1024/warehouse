@@ -6,7 +6,7 @@
     <el-main>
       <div class="input-xx">
         <el-input v-model="pageInfo.unitCode" placeholder="请输入实物码" suffix-icon="iconfont icon-sousuo"></el-input>
-        <el-button @click="load" v-loading.fullscreen.lock="loading">搜索</el-button>
+        <el-button @click="search" v-loading.fullscreen.lock="loading">搜索</el-button>
       </div>
       <button class ="depart">设备信息</button>
       <TransverseTable :transformedTableData="transformedTableData"></TransverseTable>
@@ -159,7 +159,8 @@ export default {
      */
     load(){
       this.loading = true
-      if (this.pageInfo.unitCode !== '') {
+      if (this.$route.query.unicode !== '') {
+        this.pageInfo.unitCode = this.$route.query.unicode
         this.request.get("/request_data_forwarding/property_inquiry?unitCode=" + this.pageInfo.unitCode).then((res)=>{
           // console.log("load 返回 "+res)
           // console.log(res.data.objectData[0])
@@ -175,6 +176,11 @@ export default {
       } else {
         this.loading = false
       }
+    },
+
+    search(){
+      this.$route.query.unicode = this.pageInfo.unitCode
+      this.load()
     }
 
   }
