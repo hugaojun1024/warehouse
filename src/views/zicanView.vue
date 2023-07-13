@@ -57,12 +57,15 @@ export default {
         // }
       ],
       transformedTableData: [],
+      qrCodeData:"",
       loading: false
     }
   },
 
   created() {
     this.load()
+    // 在created生命周期钩子中获取传递的参数
+    // this.qrCodeData = this.$route.params.data;
   },
 
   methods: {
@@ -113,7 +116,7 @@ export default {
 
       }
       this.transformedTableData = transformedTableData; // ***必须更新属性值
-      console.log("this.transformedTableData" + this.transformedTableData)
+      // console.log("this.transformedTableData" + this.transformedTableData)
       return transformedTableData;
     },
 

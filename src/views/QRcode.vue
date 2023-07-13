@@ -29,7 +29,9 @@
     <!--页面主体区-->
     <el-main>
       <div>
-        <canvas ref="canvas" width="720" height="540"></canvas>
+        <div style="display: flex; justify-content: center;">
+          <canvas ref="canvas" width="720px" height="540px"></canvas>
+        </div>
 
         <div class="scan">
           <video ref="video"></video>
@@ -38,16 +40,18 @@
 
 <!--        <button @click="capturePhoto">{{ captureButtonText }}</button>-->
 <!--        <button @click="saveImage">保存</button>-->
-        <el-button @click="capturePhoto" type="primary" style="margin-right: 30px; width: 120px; height: 50px;">{{ captureButtonText }}</el-button>
-        <el-button @click="saveImage" type="success" style="width: 120px; height: 50px;">识别二维码</el-button>
+        <div style="display: flex; justify-content: center;">
+          <el-button @click="capturePhoto" type="primary" style="width: 320px; height: 50px;">{{ captureButtonText }}</el-button>
+<!--          <el-button @click="saveImage" type="success" style="width: 120px; height: 50px;">识别二维码</el-button>-->
+        </div>
         <br />
 
-        <div>
-          <h2>识别结果：</h2>
-          <ul>
-            <li v-for="code in codes" :key="code">{{ code }}</li>
-          </ul>
-        </div>
+<!--        <div>-->
+<!--          <h2>识别结果：</h2>-->
+<!--          <ul>-->
+<!--            <li v-for="code in codes" :key="code">{{ code }}</li>-->
+<!--          </ul>-->
+<!--        </div>-->
       </div>
     </el-main>
     <!--底部区域-->
@@ -106,6 +110,7 @@ export default {
         $(video).hide();
         this.captureButtonText = '重新拍照';
         this.isCaptured = true;
+        this.decodeQRCode();
       } else {
         $(video).show();
         $(canvas).hide();
@@ -113,7 +118,6 @@ export default {
         this.isCaptured = false;
       }
 
-      this.decodeQRCode();
     },
     decodeQRCode() {
       const canvas = this.$refs.canvas;
@@ -124,13 +128,18 @@ export default {
       });
 
       if (code) {
+        // 识别成功
+        this.$message.success("识别成功！")
         this.showCode(code.data);
         //打印识别出来的地址
         console.log(code.data);
+
+        //截取unitCode后面的数字
         const regex = /unitCode=([^&]+)/;
         const match = code.data.match(regex);
         const unitCode = match ? match[1] : null;
         console.log(unitCode);
+
         //识别成功跳转到资产页面
         this.$router.push({
           name: 'zicanView',
@@ -147,7 +156,7 @@ export default {
     },
     saveImage() {
       const canvas = this.$refs.canvas;
-      const image = canvas.toDataURL('image/png');
+      //const image = canvas.toDataURL('image/png');
 
       this.decodeQRCode();
       // Use the image data as needed (e.g., save or process it)
@@ -156,7 +165,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+
+.el-header{
+  padding: initial;
+}
+
+.el-footer {
+  padding: initial;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -171,8 +189,8 @@ export default {
 }
 
 canvas {
-  width: 50%;
-  height: 50%;
+  width: 80%;
+  height: 80%;
   display: none;
 }
 
@@ -199,14 +217,20 @@ video {
   height: 100%;
 }
 
-.scan::after {
-  content: '';
-  width: 978px;
-  border: 2px solid #BBE2FF;
-  position: absolute;
-  left: 8px;
-  top: 2px;
-  animation: myfirst 8s infinite;
+// 二维码框中的向下滑横线
+
+//.scan::after {
+//  content: '';
+//  width: 366px;
+//  border: 2px solid #BBE2FF;
+//  position: absolute;
+//  left: 2px;
+//  top: 2px;
+//  animation: myfirst 8s infinite;
+//}
+
+.el-button{
+  margin-top: 220px;
 }
 
 @keyframes myfirst {
@@ -214,7 +238,7 @@ video {
     top: 2px;
   }
   to {
-    top: 728px;
+    top: 280px;
   }
 }
 </style>

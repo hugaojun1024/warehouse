@@ -31,23 +31,25 @@ export default {
   },
   data(){
     return {
-      userLoginInfo: localStorage.getItem("userLoginInfo") ? JSON.parse(localStorage.getItem("userLoginInfo")):{}
+      //这段代码是将本地存储中的userLoginInfo数据项解析为JSON格式，
+      // 并将解析后的结果赋值给userLoginInfo对象。如果本地存储中不存在userLoginInfo，则将userLoginInfo对象初始化为空对象 {}。
+      userLoginInfo: localStorage.getItem("userLoginInfo") ? JSON.parse(localStorage.getItem("userLoginInfo")): null,
+      token: localStorage.getItem("token")
     }
   },
   created() {
-    // if (this.userLoginInfo.userId == null){
-    //   console.log(null);
-    //   this.$router.push("/loginUser")
-    // }
+    if (this.userLoginInfo == null || this.token == null ){
+      this.$router.push("/loginUser")
+    }
   },
   mounted() {
-
   },
   methods:{
     logout(){
       //清除本地保存的用户登录信息
-      if (localStorage.getItem("token") != null){
+      if (localStorage.getItem("token") != null || localStorage.getItem("userLoginInfo") != null){
         localStorage.removeItem("token")
+        localStorage.removeItem("userLoginInfo")
       }
       this.$router.push("/loginUser")
     },

@@ -99,6 +99,7 @@ export default {
           // 将用户token保存到vuex中
           // _this.changeLogin({ Authorization: _this.userToken });
           localStorage.setItem("token",token);
+          localStorage.setItem("userLoginInfo",JSON.stringify(res.data.data.user))
           _this.$router.push('/');
           // alert('登陆成功');
           this.$message.success("欢迎访问");
@@ -123,6 +124,9 @@ export default {
 }
 .el-header {
   padding: initial;
+}
+.el-footer {
+  padding:initial;
 }
 .login_box {
   width: 100%;

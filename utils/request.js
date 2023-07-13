@@ -13,7 +13,7 @@ const request = axios.create({
 request.interceptors.request.use(config => {
   config.headers['Content-Type'] = 'application/json;charset=utf-8';
   const token = localStorage.getItem("token");
-  console.log(token);
+  // console.log(" token :: " + token);
   if (token) config.headers['token'] = token;
   return config;
 
@@ -28,7 +28,7 @@ request.interceptors.response.use(
   ({ response }) => {
     const {status, data} = response;
     const {message} = data;
-    console.log(message)
+    // console.log("message Response ：" + message)
     Message.error("请先登录以获得访问权限");
     if (status === 401 || status === 500) router.push('/loginUser');
     return Promise.reject(error);

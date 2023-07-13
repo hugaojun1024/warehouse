@@ -80,7 +80,7 @@ export default {
     // }
   },
   mounted() {
-    if (this.userLoginInfo.role == 1){
+    if (this.userLoginInfo.role === 1){
       this.suggestViewFlag = true
     }
   }
@@ -92,6 +92,10 @@ export default {
     height: 100%;
   }
   .el-header {
+    padding: initial;
+  }
+
+  .el-footer {
     padding: initial;
   }
   .box {

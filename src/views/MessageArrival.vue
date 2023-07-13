@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <el-container class="home-container">
     <el-header>
       <HeaderCompHasExit url="/"></HeaderCompHasExit>
     </el-header>
@@ -19,7 +19,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </el-container>
 </template>
 
 <script>
@@ -130,7 +130,11 @@ function closeWebSocket(){
 
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+
+.home-container {
+  height: 100%;
+}
 
 .el-header {
   padding: initial;
