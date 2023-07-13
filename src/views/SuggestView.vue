@@ -13,6 +13,20 @@ export default {
   components: {
     SuggestTable,
     HeaderCompHasExit
+  },
+  data() {
+    return {
+
+    }
+  },
+  created() {
+    this.load();
+  },
+  methods:{
+    load() {
+      this.loading = true;
+      this.request.get("/feed_back")
+    }
   }
 }
 </script>

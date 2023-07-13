@@ -91,9 +91,11 @@ export default {
         this.$message.error("账号或密码不能为空");
       } else {
         this.request.post("/user/login", this.loginForm).then(res=>{
-          console.log("res " + res);
-          const token = res.data.data;
-          console.log(token);
+          // console.log("res " + res);
+          const info = res.data.data;
+          // console.log(info);
+          // console.log(info.token);
+          const token = info.token;
           // 将用户token保存到vuex中
           // _this.changeLogin({ Authorization: _this.userToken });
           localStorage.setItem("token",token);
