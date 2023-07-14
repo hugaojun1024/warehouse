@@ -27,10 +27,18 @@ request.interceptors.response.use(
   (response) => response,
   ({ response }) => {
     const {status, data} = response;
-    const {message} = data;
+    // const {message} = data;
     // console.log("message Response ：" + message)
-    Message.error("请先登录以获得访问权限");
-    if (status === 401 || status === 500) router.push('/loginUser');
+    if (status === 401) {
+      Message.error("请先登录以获得访问权限");
+      router.push('/loginUser');
+    } else if (status === 500){
+      Message.error("抱歉！服务器内部错误, 请稍后重试");
+      router.push('/');
+    } else {
+      Message.error("抱歉！访问失败, 请稍后重试");
+      router.push('/');
+    }
     return Promise.reject(error);
   }
   // response => {

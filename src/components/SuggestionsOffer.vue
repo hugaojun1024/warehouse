@@ -85,7 +85,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
   span{
     line-height: 66px;
     margin-left: 20px;
@@ -98,5 +98,13 @@ export default {
   }
   .footer{
     text-align: center;
+  }
+  /* 优化 内边距 */
+  .el-checkbox-group {
+    padding: 22px;
+  }
+
+  .el-checkbox {
+    font-size: 20px;
   }
 </style>

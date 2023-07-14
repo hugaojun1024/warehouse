@@ -36,22 +36,25 @@
         <div class="scan">
           <video ref="video"></video>
         </div>
-        <br />
+        <br/>
 
-<!--        <button @click="capturePhoto">{{ captureButtonText }}</button>-->
-<!--        <button @click="saveImage">保存</button>-->
+        <!--        <button @click="capturePhoto">{{ captureButtonText }}</button>-->
+        <!--        <button @click="saveImage">保存</button>-->
         <div style="display: flex; justify-content: center;">
-          <el-button @click="capturePhoto" type="primary" style="width: 320px; height: 50px;">{{ captureButtonText }}</el-button>
-<!--          <el-button @click="saveImage" type="success" style="width: 120px; height: 50px;">识别二维码</el-button>-->
+          <el-button @click="capturePhoto" type="primary" style="width: 320px; height: 50px;">{{
+              captureButtonText
+            }}
+          </el-button>
+          <!--          <el-button @click="saveImage" type="success" style="width: 120px; height: 50px;">识别二维码</el-button>-->
         </div>
-        <br />
+        <br/>
 
-<!--        <div>-->
-<!--          <h2>识别结果：</h2>-->
-<!--          <ul>-->
-<!--            <li v-for="code in codes" :key="code">{{ code }}</li>-->
-<!--          </ul>-->
-<!--        </div>-->
+        <!--        <div>-->
+        <!--          <h2>识别结果：</h2>-->
+        <!--          <ul>-->
+        <!--            <li v-for="code in codes" :key="code">{{ code }}</li>-->
+        <!--          </ul>-->
+        <!--        </div>-->
       </div>
     </el-main>
     <!--底部区域-->
@@ -65,15 +68,16 @@ import jsQR from 'jsqr/dist/jsQR.js';
 import $ from 'jquery';
 import NavigatorBar from "@/components/NavigatorBar.vue";
 import HeaderComp from '@/components/HeaderComp';
+
 export default {
-  name:"QRcode",
-  components:{
+  name: "QRcode",
+  components: {
     NavigatorBar,
     HeaderComp
   },
   data() {
     return {
-      captureButtonText: '拍照',
+      captureButtonText: '识别二维码',
       isCaptured: false,
       codes: [],
     };
@@ -84,7 +88,7 @@ export default {
   methods: {
     initializeCamera() {
       const video = this.$refs.video;
-      navigator.mediaDevices.getUserMedia({ video: true })
+      navigator.mediaDevices.getUserMedia({video: true})
         .then((stream) => {
           if ('srcObject' in video) {
             video.srcObject = stream;
@@ -108,13 +112,13 @@ export default {
         context.drawImage(video, 0, 0, canvas.width, canvas.height);
         $(canvas).show();
         $(video).hide();
-        this.captureButtonText = '重新拍照';
+        this.captureButtonText = '重新识别二维码';
         this.isCaptured = true;
         this.decodeQRCode();
       } else {
         $(video).show();
         $(canvas).hide();
-        this.captureButtonText = '拍照';
+        this.captureButtonText = '识别二维码';
         this.isCaptured = false;
       }
 
@@ -127,29 +131,38 @@ export default {
         inversionAttempts: 'dontInvert',
       });
 
-      if (code) {
-        // 识别成功
-        this.$message.success("识别成功！")
-        this.showCode(code.data);
-        //打印识别出来的地址
-        console.log(code.data);
+      const token = localStorage.getItem("token");
+      const userLoginInfo = localStorage.getItem("userLoginInfo");
 
-        //截取unitCode后面的数字
-        const regex = /unitCode=([^&]+)/;
-        const match = code.data.match(regex);
-        const unitCode = match ? match[1] : null;
-        console.log(unitCode);
+      if (token || userLoginInfo) {
+        if (code) {
+          // 识别成功
+          this.$message.success("识别成功！")
+          this.showCode(code.data);
+          //打印识别出来的地址
+          console.log(code.data);
 
-        //识别成功跳转到资产页面
-        this.$router.push({
-          name: 'zicanView',
-          query:{
-            unicode: unitCode
-          }
-        });
+          //截取unitCode后面的数字
+          const regex = /unitCode=([^&]+)/;
+          const match = code.data.match(regex);
+          const unitCode = match ? match[1] : null;
+          console.log(unitCode);
+
+          //识别成功跳转到资产页面
+          this.$router.push({
+            name: 'zicanView',
+            query: {
+              unicode: unitCode
+            }
+          });
+        } else {
+          this.$message.error('识别错误！')
+        }
       } else {
-        this.$message.error('识别错误！')
+        this.$message.error("该功能需要登录获取访问权限！");
+        this.$router.push("/LoginUser");
       }
+
     },
     showCode(code) {
       this.codes.push(code);
@@ -167,7 +180,7 @@ export default {
 
 <style lang="less" scoped>
 
-.el-header{
+.el-header {
   padding: initial;
 }
 
@@ -229,7 +242,7 @@ video {
 //  animation: myfirst 8s infinite;
 //}
 
-.el-button{
+.el-button {
   margin-top: 220px;
 }
 

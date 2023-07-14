@@ -40,12 +40,21 @@
                 <span>固定资产查询</span>
               </li>
             </a>
-            <a v-if="suggestViewFlag" href="/suggestView">
+<!--            <a v-if="suggestViewFlag" href="/suggestView">-->
+<!--              <li style="background-image: linear-gradient(#f2c047,#ee9446)">-->
+<!--                <img src="../assets/意见反馈.png">-->
+<!--                <span>反馈建议专栏</span>-->
+<!--              </li>-->
+<!--            </a>-->
+
+            <!--    优化功能，改成普通用户能看见但是点击不进去        -->
+            <a @click="handleClick" :aria-disabled="suggestViewFlag" :href="suggestViewFlag ? '/suggestView' : null" >
               <li style="background-image: linear-gradient(#f2c047,#ee9446)">
                 <img src="../assets/意见反馈.png">
                 <span>反馈建议专栏</span>
               </li>
             </a>
+
           </ul>
         </div>
       </div>
@@ -72,6 +81,20 @@ export default {
     return{
       suggestViewFlag:false,
       userLoginInfo: localStorage.getItem("userLoginInfo") ? JSON.parse(localStorage.getItem("userLoginInfo")):{}
+    }
+  },
+  methods: {
+    handleClick() {
+      // 进行权限检查，假设 isAdmin 表示当前用户是否为管理员
+      const isAdmin = this.suggestViewFlag; // 根据实际情况设置管理员权限
+
+      if (isAdmin) {
+        // 执行点击事件的逻辑
+        // null
+      } else {
+        // 非管理员提示信息
+        this.$message.error("抱歉！您没有权限访问此功能，请升级您的权限");
+      }
     }
   },
   created() {
