@@ -21,7 +21,12 @@
       <el-table-column
         prop="stockNum"
         label="仓库数量"
-      sortable>
+        sortable>
+        <template slot-scope="scope">
+          <span :class="{ 'red-text': scope.row.warningNum <= scope.row.stockNum && scope.row.warningNum != null }">
+            {{ scope.row.stockNum }}
+          </span>
+        </template>
       </el-table-column>
     </el-table>
   </div>
@@ -34,7 +39,7 @@ export default {
   data () {
     return {
       datalist:{
-        warningNum:"7",
+        warningNum:"",
       }
     }
   },
@@ -44,7 +49,6 @@ export default {
   methods: {
     saveData() {
       const saveData = [];
-      console.log(111111)
       this.tableData.forEach(row => {
         const materialName = row.matName;
         const warningValue = this.datalist.warningNum;
@@ -60,8 +64,7 @@ export default {
           batchNo: row.batchNo,
           warningNum: row.warningNum
         }).then(res=>{
-          if (res.code == '200'){
-
+          if (res.code === '200') {
           }
         }).finally(()=>{
           this.$message.success("已自动保存")
@@ -75,5 +78,10 @@ export default {
 <style lang="less">
 th.el-table_1_column_3 .cell{
   color:#f30;
+}
+
+.red-text {
+  color: red;
+  font-weight: bold;
 }
 </style>

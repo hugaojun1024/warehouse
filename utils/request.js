@@ -29,11 +29,12 @@ request.interceptors.response.use(
     const {status, data} = response;
     // const {message} = data;
     // console.log("message Response ：" + message)
+    console.log(status)
     if (status === 401) {
       Message.error("请先登录以获得访问权限");
       router.push('/loginUser');
     } else if (status === 500){
-      Message.error("抱歉！服务器内部错误, 请稍后重试");
+      Message.error("抱歉！服务器繁忙, 请稍后重试");
       router.push('/');
     } else {
       Message.error("抱歉！访问失败, 请稍后重试");

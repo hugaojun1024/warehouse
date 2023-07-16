@@ -1,5 +1,8 @@
+// 该文件专门用于创建整个应用的路由器
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
+// 引入组件
 // import HomeView from '../views/HomeView.vue'
 import LoginUser from '../components/LoginUser.vue'
 import Home from '../views/Home'
@@ -25,8 +28,10 @@ import DetailedList from "@/views/DetailedList";
 import MessageInfo2 from "@/components/MessageInfo2";
 import QRcode from "@/views/QRcode";
 import suggestView from "@/views/SuggestView";
+
 Vue.use(VueRouter)
 
+// 创建并暴露一个路由器
 export default new VueRouter({
   mode: 'history',
   routes: [

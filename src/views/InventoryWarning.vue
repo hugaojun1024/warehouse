@@ -21,6 +21,8 @@
           <el-dropdown-item divided>其他</el-dropdown-item> -->
         </el-dropdown-menu>
       </el-dropdown>
+
+      <!-- 子组件 Table -->
       <TableForWarning :tableData="tableData" :loading="loading2"></TableForWarning>
     </el-main>
     <el-footer style="text-align: center">
@@ -88,10 +90,10 @@ export default {
       if (currentPage != null){
         this.pageInfo.pageNum = currentPage
       }
-      if (this.selectedStation == '地铁大厦站'){
+      if (this.selectedStation === '地铁大厦站'){
         this.redirectToDTDS()
       }
-      if (this.selectedStation == '西站南广场站'){
+      if (this.selectedStation === '西站南广场站'){
         this.redirectToXZNGG()
       }
       // console.log(this.pageInfo)
