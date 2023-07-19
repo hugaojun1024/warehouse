@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     load() {
-      console.log(this.messageInfo)
+      // console.log(this.messageInfo)
       this.tableData = this.messageInfo.detail
     }
   }

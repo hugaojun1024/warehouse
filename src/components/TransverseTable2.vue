@@ -27,7 +27,10 @@ export default {
   props: ['messageInfo'],
   data() {
     return {
-      messageInfo:[
+      // 根据您提供的代码，我注意到在props中定义了messageInfo，同时在data中又重新定义了一个相同名字的messageInfo，
+      // 这导致了警告：“The data property 'messageInfo' is already declared as a prop. Use prop default value instead.”。
+      // 为了解决这个警告，您应该删除在data中定义的messageInfo属性，因为它已经作为props属性传递进来了。不需要再在data中重新定义相同的属性。
+      // messageInfo:[
         // {
         //   name: "到货仓库",
         //   value: "双港站"
@@ -52,7 +55,7 @@ export default {
         //   name: "验收截止时间",
         //   value: "2023年5月8日",
         // }
-      ],
+      // ],
       transformedTableData:[]
     };
   },
