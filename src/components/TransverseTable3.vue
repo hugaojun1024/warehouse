@@ -48,7 +48,7 @@ export default {
   methods: {
     // 自定义列背景色
     columnStyle({ row, column, rowIndex, columnIndex }) {
-      if (columnIndex == 0) {
+      if (columnIndex === 0) {
         // 修改每行第一个单元格的背景色
         return "background:#f3f6fc;";
       }else{

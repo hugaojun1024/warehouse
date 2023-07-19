@@ -5,15 +5,17 @@
     </el-header>
     <div class="content">
       <div class="message-content">
-        <div class="message-item" v-for="item in messageData">
-          <a :href="'/message_info?messageId=' + item.messageId">
+        <div class="message-item" v-for="item in messageData" :key="item.messageId">
+          <a :href="'/message_info?messageId=' + item.messageId + '&mainId=' + item.mainId">
             <div class="message-img">
               <img style="margin-left: 30px" src="../assets/message.png" width="30px" height="30px">
             </div>
             <div class="message-text">
-              <span style="font-weight: bolder">{{item.messageTitle}}</span>
-              <span style="font-size: 13px; margin-left: 50px;color: #9A9A9A">{{item.messageTime}}</span>
-              <p style="margin-top: 20px">{{item.messageTitle}}</p>
+              <ul style="list-style-type:none">
+                <li><span style="font-weight: bolder; font-size: 14px;">订单号：{{ item.main.purcOrderId }}</span></li>
+                <li><span style="font-size: 13px; color: #828282">来自：{{ item.main.recCreator }}</span></li>
+                <li><p style="margin-top: 16px">到货时间：{{ item.main.arrivalDate | formatDate }}</p></li>
+              </ul>
             </div>
           </a>
         </div>
@@ -28,105 +30,45 @@ import NavigatorBar from "@/components/NavigatorBar.vue";
 
 export default {
   name: "MessageArrival",
-  components:{
+  components: {
     HeaderCompHasExit,
     NavigatorBar
+  },
+  data() {
+    return {
+      messageData: []
+    }
   },
   created() {
     // if (this.userLoginInfo.userId == null){
     //   this.$router.push("/loginUser")
     // }
+    this.load()
   },
-  data(){
-    return {
-      userLoginInfo: localStorage.getItem("userLoginInfo") ? JSON.parse(localStorage.getItem("userLoginInfo")):{},
-      messageData:[
-        {
-          messageId:1,
-          messageTitle:'到货信息提醒推送1',
-          messageContext:'通知内容',
-          messageTime:"2023月5月1日",
-          messageFrom:'管理员'
-        },
-        {
-          messageId:2,
-          messageTitle:'到货信息提醒推送2',
-          messageContext:'通知内容',
-          messageTime:'2023月5月1日',
-          messageFrom:'管理员'
-        },
-        {
-          messageId:3,
-          messageTitle:'到货信息提醒推送3',
-          messageContext:'通知内容',
-          messageTime:'2023月5月1日',
-          messageFrom:'管理员'
-        }
-      ]
+  methods: {
+    load() {
+      this.loading = true
+      this.request.get("/point/get_messages").then((res) => {
+        this.messageData = res.data.data
+        console.log(this.messageData)
+      }).finally(()=>{
+      })
+      this.loading = false
+    }
+  },
+  // 在Vue组件的`filters`选项中定义过滤器
+  filters: {
+    formatDate(value) {
+      if (!value) return ''; // 处理空值情况
+
+      // 将时间字符串截取为年月日格式
+      const year = value.substring(0, 4);
+      const month = value.substring(4, 6);
+      const day = value.substring(6, 8);
+      return `${year}-${month}-${day}`;
     }
   }
 }
-
-let websocket = null;
-
-//判断当前浏览器是否支持WebSocket
-if('WebSocket' in window){
-  websocket = new WebSocket("ws://localhost:8081/websocket");
-}else{
-  alert('Not support websocket')
-}
-
-//连接发生错误的回调方法
-websocket.onerror = function(){
-  console.log("发生错误");
-};
-
-//连接成功建立的回调方法
-websocket.onopen = function(event){
-  console.log("建立连接");
-}
-
-//接收到消息的回调方法
-websocket.onmessage = function(event){
-  console.log("event.data" + event.data)
-  this.messageData = event.data;
-  alert(123)
-  // setMessageInnerHTML(event.data);
-  // $(".progress-bar").attr("style","width:"+event.data+"%")
-}
-
-//连接关闭的回调方法
-websocket.onclose = function(){
-  console.log("关闭连接");
-}
-
-//监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
-window.onbeforeunload = function(){
-  alert("已关闭连接");
-  websocket.close();
-}
-
-//将消息显示在网页上
-function setMessageInnerHTML(innerHTML){
-  document.getElementById('message').innerHTML += innerHTML + '<br/>';
-}
-
-//关闭连接
-function closeWebSocket(){
-  alert("已关闭连接");
-  websocket.close();
-}
-
-// //开始
-// $("#btn").click(function(){
-//   $.ajax({
-//     url: "http://localhost:8089/codeController/jinDuTiao",
-//     type:'post',
-//     success: function(HTML) {//返回页面内容
-//       console.log(HTML);
-//     }
-//   });
-// })
 
 </script>
 
@@ -140,28 +82,32 @@ function closeWebSocket(){
   padding: initial;
 }
 
-.header{
+.header {
   height: 60px;
   width: 100%;
 }
-.content{
+
+.content {
   width: 100%;
 }
 
-.content .message-content{
+.content .message-content {
   width: 100%;
   height: calc(100vh - 120px);
 }
-.content .message-item{
+
+.content .message-item {
   height: 120px;
   border-bottom: 3px solid #eee;
 }
-.content .message-img{
+
+.content .message-img {
   padding-top: 38px;
   float: left;
   width: 25%;
 }
-.content .message-text{
+
+.content .message-text {
   padding-top: 20px;
   float: left;
   width: 75%;

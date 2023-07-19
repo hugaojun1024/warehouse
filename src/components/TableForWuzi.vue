@@ -5,18 +5,18 @@
       stripe
       class="wuzi-table">
       <el-table-column
-        prop="ItemName"
+        prop="matName"
         label="物品名称"
         sortable>
       </el-table-column>
       <el-table-column
-        prop="numInIncoming"
+        prop="arrivalNumber"
         label="到货数量"
         sortable>
       </el-table-column>
       <el-table-column
-        prop="unit"
-        label="单位"
+        prop="purcBrand"
+        label="品牌"
         sortable>
       </el-table-column>
     </el-table>
@@ -26,25 +26,19 @@
 <script>
 export default {
   name: "TableForWuzi",
-  data () {
+  props: ['messageInfo'],
+  data() {
     return {
-      tableData: [{
-        ItemName: '一次性医用口罩',
-        numInIncoming: '20',
-        unit:'箱'
-      }, {
-        ItemName: '酒精消毒水',
-        numInIncoming: '88',
-        unit:'瓶'
-      }, {
-        ItemName: '防疫服',
-        numInIncoming: '12',
-        unit:'件'
-      }, {
-        ItemName: '防汛沙袋',
-        numInIncoming: '10',
-        unit:'个'
-      }]
+      tableData: [],
+    }
+  },
+  created() {
+    this.load();
+  },
+  methods: {
+    load() {
+      console.log(this.messageInfo)
+      this.tableData = this.messageInfo.detail
     }
   }
 }

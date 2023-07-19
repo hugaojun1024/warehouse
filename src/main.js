@@ -7,10 +7,21 @@ import router from './router'
 // 引入 Jquery
 import jquery from 'jquery'
 Vue.prototype.$ = jquery
+
+// 引入jsQR
 import jsQR from 'jsqr/dist/jsQR.js';
 
 // 引入Element组件
 import './plugins/element.js'
+
+// 引入websocket
+import '/utils/socketVuex.js'
+
+//引入
+import socketPublic from '../utils/socketVuex.js'
+
+// //挂载
+// Vue.prototype.$socketPublic = socketPublic
 
 // 导入全局样式表
 import './assets/css/global.css'

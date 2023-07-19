@@ -11,9 +11,10 @@
         <div class="box-bd">
           <ul>
             <a href="/messageArrival">
-              <li style="background-image: linear-gradient(#7ef6d6,#47ec94);">
+              <li style="background-image: linear-gradient(#7ef6d6,#47ec94); position: relative;">
                 <img src="../assets/已到货.png">
                 <span>物资到货信息</span>
+                <span v-if="newsFlag" class="new-message">有新信息</span>
               </li>
             </a>
             <a href="/messageTransfer">
@@ -40,15 +41,15 @@
                 <span>固定资产查询</span>
               </li>
             </a>
-<!--            <a v-if="suggestViewFlag" href="/suggestView">-->
-<!--              <li style="background-image: linear-gradient(#f2c047,#ee9446)">-->
-<!--                <img src="../assets/意见反馈.png">-->
-<!--                <span>反馈建议专栏</span>-->
-<!--              </li>-->
-<!--            </a>-->
+            <!--            <a v-if="suggestViewFlag" href="/suggestView">-->
+            <!--              <li style="background-image: linear-gradient(#f2c047,#ee9446)">-->
+            <!--                <img src="../assets/意见反馈.png">-->
+            <!--                <span>反馈建议专栏</span>-->
+            <!--              </li>-->
+            <!--            </a>-->
 
             <!--    优化功能，改成普通用户能看见但是点击不进去        -->
-            <a @click="handleClick" :aria-disabled="suggestViewFlag" :href="suggestViewFlag ? '/suggestView' : null" >
+            <a @click="handleClick" :aria-disabled="suggestViewFlag" :href="suggestViewFlag ? '/suggestView' : null">
               <li style="background-image: linear-gradient(#f2c047,#ee9446)">
                 <img src="../assets/意见反馈.png">
                 <span>反馈建议专栏</span>
@@ -70,6 +71,7 @@
 import NavigatorBar from "@/components/NavigatorBar.vue";
 import Carousel from '@/components/CarouselView';
 import HeaderComp from '@/components/HeaderComp';
+
 export default {
   name: 'HomeVue',
   components: {
@@ -77,10 +79,11 @@ export default {
     NavigatorBar,
     HeaderComp
   },
-  data(){
-    return{
-      suggestViewFlag:false,
-      userLoginInfo: localStorage.getItem("userLoginInfo") ? JSON.parse(localStorage.getItem("userLoginInfo")):{}
+  data() {
+    return {
+      suggestViewFlag: false,
+      newsFlag: true,
+      userLoginInfo: localStorage.getItem("userLoginInfo") ? JSON.parse(localStorage.getItem("userLoginInfo")) : {}
     }
   },
   methods: {
@@ -98,89 +101,163 @@ export default {
     }
   },
   created() {
-    // if (this.userLoginInfo.userId == null){
-    //   this.$router.push("/loginUser")
-    // }
+
+    let websocket = null;
+
+//判断当前浏览器是否支持WebSocket
+    if ('WebSocket' in window) {
+      websocket = new WebSocket("ws://localhost:8081/websocket");
+    } else {
+      alert('Not support websocket')
+    }
+
+//连接发生错误的回调方法
+    websocket.onerror = function () {
+      console.log("发生错误");
+    };
+
+//连接成功建立的回调方法
+    websocket.onopen = function (event) {
+      console.log("建立连接");
+    }
+
+//接收到消息的回调方法
+    websocket.onmessage = function (event) {
+      console.log("event.data" + event.data)
+      this.messageData = event.data;
+      localStorage.setItem("websData", this.messageData);
+      // if (event.data != null) {
+      //   this.newsFlag  === true
+      // }
+      // console.log(this.newsFlag)
+      // setMessageInnerHTML(event.data);
+      // $(".progress-bar").attr("style","width:"+event.data+"%")
+    }
+
+//连接关闭的回调方法
+    websocket.onclose = function () {
+      console.log("关闭连接");
+    }
+
+//监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+    window.onbeforeunload = function () {
+      alert("已关闭连接");
+      websocket.close();
+    }
+
+//将消息显示在网页上
+    function setMessageInnerHTML(innerHTML) {
+      document.getElementById('message').innerHTML += innerHTML + '<br/>';
+    }
+
+//关闭连接
+    function closeWebSocket() {
+      alert("已关闭连接");
+      websocket.close();
+    }
   },
   mounted() {
-    if (this.userLoginInfo.role === 1){
+    if (this.userLoginInfo.role === 1) {
       this.suggestViewFlag = true
     }
   }
+
 }
 </script>
 
 <style lang="less" scoped>
-  .home-container {
-    height: 100%;
-  }
-  .el-header {
-    padding: initial;
+.home-container {
+  height: 100%;
+}
+
+.el-header {
+  padding: initial;
+}
+
+.el-footer {
+  padding: initial;
+}
+
+.box {
+  margin-top: 30px;
+  padding: 20px 27px;
+}
+
+.box-bd {
+  //text-align: center;
+}
+
+.box-bd ul {
+  //width: 380px;
+  display: inline-block;
+  //display: flex; /* 将ul元素变为弹性容器 */
+  //justify-content: center; /* 水平居中ul元素中的li元素 */
+}
+
+.box-bd ul li {
+  float: left;
+  width: 110px;
+  height: 110px;
+  //margin-left: 2px;
+  margin-right: 50px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  > img {
+    width: 70px;
+    height: 70px;
+    display: block;
   }
 
-  .el-footer {
-    padding: initial;
+  > span {
+    text-align: center;
+    margin: 5px;
   }
-  .box {
-    margin-top: 30px;
-    padding: 20px 27px;
+}
+
+.new-message {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+.footer {
+  height: 60px;
+  border: 1px;
+  background-color: #ff0000;
+}
+
+.footer-xx {
+  margin-top: 2px;
+  background-color: #2b4b6b;
+}
+
+.footer-xx ul li {
+  float: left;
+  width: 50px;
+  height: 50px;
+  //background-color: #42b983;
+  margin-right: 74px;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+
+  > span {
+    text-align: center;
+    font-size: 15px;
   }
-  .box-bd {
-    //text-align: center;
-  }
-  .box-bd ul {
-    //width: 380px;
-    display: inline-block;
-    //display: flex; /* 将ul元素变为弹性容器 */
-    //justify-content: center; /* 水平居中ul元素中的li元素 */
-  }
-  .box-bd ul li {
-    float: left;
-    width: 110px;
-    height: 110px;
-    //margin-left: 2px;
-    margin-right: 50px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    > img {
-      width: 70px;
-      height: 70px;
-      display: block;
-    }
-    > span {
-      text-align: center;
-      margin: 5px;
-    }
-  }
-  .footer {
-    height: 60px;
-    border: 1px;
-    background-color: #ff0000;
-  }
-  .footer-xx {
-    margin-top: 2px;
-    background-color: #2b4b6b;
-  }
-  .footer-xx ul li{
-    float: left;
-    width: 50px;
-    height: 50px;
-    //background-color: #42b983;
-    margin-right: 74px;
-    margin-bottom: 15px;
-    margin-top: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    > span {
-      text-align: center;
-      font-size: 15px;
-    }
-  }
+}
 </style>
