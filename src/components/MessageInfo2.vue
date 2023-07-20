@@ -5,16 +5,16 @@
     </div>
     <div class="content">
       <div class="message-title">
-        <h3>{{messageInfo.messageTitle}}</h3>
+        <h4>调拨单号：{{messageInfo.main.transferNo}}</h4>
       </div>
       <div class="message-time-from">
-        <span>{{messageInfo.messageTime}}</span>
-        <span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来自：{{messageInfo.messageFrom}}</span>
+        <span>调拨项数：{{messageInfo.main.num}} 项</span>
+<!--        <span>来自：{{messageInfo.messageFrom}}</span>-->
       </div>
       <div class="message-content">
 <!--        <p>{{messageInfo.messageContext}}</p>-->
 <!--        <button class ="depart">设备信息</button>-->
-        <transverse-table3 :tableData="table_data"></transverse-table3>
+        <transverse-table3 :messageInfo="messageInfo"></transverse-table3>
       </div>
     </div>
   </div>
@@ -23,7 +23,6 @@
 <script>
 import HeaderCompHasExit from "@/components/HeaderCompHasExit.vue";
 import TransverseTable3 from "@/components/TransverseTable3";
-import axios from "axios";
 export default {
   name: "MessageInfo",
   components:{
@@ -32,30 +31,30 @@ export default {
   },
   data(){
     return {
-      messageInfo:{
-        messageId:2,
-        messageTitle:'调拨信息提醒推送2',
-        messageContext:'通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容通知内容',
-        messageTime:'2023年5月11日',
-        messageFrom:'管理员'
-      },
-      messageId:0
+      messageInfo:[],
+      transferId:'',
+      mainId:''
     }
   },
   created() {
-    this.messageId = this.getParam('messageId')
+    this.transferId = this.getParam('transferId')
+    this.mainId = this.getParam('mainId')
+    // console.log(this.transferId)
+    // console.log(this.mainId)
     this.load()
-
   },
   methods:{
     load(){
       //向服务器请求获取这条通知的具体信息
-      axios.request().get("url",{
-        param:{
-          messageId:this.messageId
+      this.loading = true
+      this.request.get("point/get_transferById", {
+        params: {
+          transferId: this.transferId,
+          mainId: this.mainId
         }
-      }).then(res=>{
-        this.messageInfo = res.data
+      }).then(res => {
+        this.messageInfo = res.data.data
+        // console.log(this.messageInfo)
       })
     },
     getParam(par){

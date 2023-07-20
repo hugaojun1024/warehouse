@@ -40,16 +40,13 @@ export default {
     }
   },
   created() {
-    // if (this.userLoginInfo.userId == null){
-    //   this.$router.push("/loginUser")
-    // }
     this.load()
   },
   methods: {
     load() {
       this.loading = true
       this.request.get("/point/get_messages").then((res) => {
-        this.messageData = res.data.data
+        this.messageData = res.data.data.reverse()
         console.log(this.messageData)
       }).finally(()=>{
       })

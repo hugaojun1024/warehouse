@@ -48,6 +48,7 @@ export default {
   methods:{
     load(){
       this.loading = true
+      // matName : 90000080361
       this.request.get("/request_data_forwarding/stock_inquiry?matName=" + this.pageInfo.matName).then((res)=>{
         this.data = res.data.objectData
         this.pageInfo.total = this.data.length

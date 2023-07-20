@@ -5,18 +5,28 @@
       stripe
       class="wuzi-table">
       <el-table-column
+        prop="matCode"
+        label="物资编码"
+        sortable>
+      </el-table-column>
+      <el-table-column
         prop="matName"
-        label="物品名称"
+        label="物资名称"
         sortable>
       </el-table-column>
       <el-table-column
-        prop="arrivalNumber"
-        label="到货数量"
+        prop="transferNum"
+        label="调拨数量"
         sortable>
       </el-table-column>
       <el-table-column
-        prop="purcBrand"
+        prop="brand"
         label="品牌"
+        sortable>
+      </el-table-column>
+      <el-table-column
+        prop="matSpecifi"
+        label="型号"
         sortable>
       </el-table-column>
     </el-table>
@@ -25,7 +35,7 @@
 
 <script>
 export default {
-  name: "TableForWuzi",
+  name: "TableForDiaobo",
   props: ['messageInfo'],
   data() {
     return {
@@ -37,8 +47,9 @@ export default {
   },
   methods: {
     load() {
-      console.log(this.messageInfo)
+      console.log("messageInfo" + this.messageInfo)
       this.tableData = this.messageInfo.detail
+      console.log(this.tableData)
     }
   }
 }

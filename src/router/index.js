@@ -28,6 +28,7 @@ import DetailedList from "@/views/DetailedList";
 import MessageInfo2 from "@/components/MessageInfo2";
 import QRcode from "@/views/QRcode";
 import suggestView from "@/views/SuggestView";
+import DetailedList2 from "@/views/DetailedList2";
 
 Vue.use(VueRouter)
 
@@ -130,8 +131,12 @@ export default new VueRouter({
       component:MessageArrival
     },
     {
-      path:"/detailedList",
-      component:DetailedList
+      path: "/detailedList",
+      component: DetailedList
+    },
+    {
+      path: "/detailedList2",
+      component: DetailedList2
     },
     {
       path:"/Message_Info2",

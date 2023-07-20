@@ -7,12 +7,12 @@
       <TableForWuzi :messageInfo="messageInfo"></TableForWuzi>
     </el-main>
     <el-footer style="text-align: center">
-<!--去掉页码-->
-<!--      <el-pagination-->
-<!--        background-->
-<!--        layout="prev, pager, next"-->
-<!--        :total="1000">-->
-<!--      </el-pagination>-->
+      <!--去掉页码-->
+      <!--      <el-pagination-->
+      <!--        background-->
+      <!--        layout="prev, pager, next"-->
+      <!--        :total="1000">-->
+      <!--      </el-pagination>-->
     </el-footer>
   </el-container>
 </template>

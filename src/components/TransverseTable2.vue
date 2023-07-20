@@ -73,6 +73,7 @@ export default {
         return "background:#ffffff;";
       }
     },
+    // 点击跳转详情页
     handleCellClick(row, column, event) {
       if (row.key === '*到货项数*') {
         // Redirect to the desired link when the "到货项数" cell is clicked
@@ -86,6 +87,7 @@ export default {
         })
       }
     },
+    // 转换数据
     transformedTableDataMethod() {
       const transformedTableData = [];
       const keyMap = {

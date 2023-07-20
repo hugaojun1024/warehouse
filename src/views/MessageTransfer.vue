@@ -5,15 +5,17 @@
     </el-header>
     <div class="content">
       <div class="message-content">
-        <div class="message-item" v-for="item in messageData">
-          <a :href="'/message_info2?messageId=' + item.messageId">
+        <div class="message-item" v-for="item in messageData" :key="item.transferId">
+          <a :href="'/message_info2?transferId=' + item.transferId + '&mainId=' + item.mainId">
             <div class="message-img">
               <img style="margin-left: 30px" src="../assets/message.png" width="30px" height="30px">
             </div>
             <div class="message-text">
-              <span style="font-weight: bolder">{{item.messageTitle}}</span>
-              <span style="font-size: 13px; margin-left: 50px;color: #9A9A9A">{{item.messageTime}}</span>
-              <p style="margin-top: 20px">{{item.messageTitle}}</p>
+              <ul style="list-style-type: none">
+                <li><span style="font-weight: bolder">调拨单号：{{ item.main.transferNo }}</span></li>
+                <li><span style="font-size: 13px;font-weight: bold; color: #c00202; margin-top: 20px;">调拨项数：{{ item.main.num }} 项</span></li>
+                <!--<p style="margin-top: 20px">{{ item.messageTitle }}</p>-->
+              </ul>
             </div>
           </a>
         </div>
@@ -25,43 +27,32 @@
 <script>
 import HeaderCompHasExit from '@/components/HeaderCompHasExit'
 import NavigatorBar from "@/components/NavigatorBar.vue";
+
 export default {
   name: "MessageTransfer",
-  components:{
+  components: {
     HeaderCompHasExit,
     NavigatorBar
   },
   created() {
-    // if (this.userLoginInfo.userId == null){
-    //   this.$router.push("/loginUser")
-    // }
+    this.load()
   },
-  data(){
+  data() {
     return {
-      userLoginInfo: localStorage.getItem("userLoginInfo") ? JSON.parse(localStorage.getItem("userLoginInfo")):{},
-      messageData:[
-        {
-          messageId:1,
-          messageTitle:'物资调拨信息提醒推送1',
-          messageContext:'通知内容',
-          messageTime:'2023月5月1日',
-          messageFrom:'管理员'
-        },
-        {
-          messageId:2,
-          messageTitle:'物资调拨信息提醒推送2',
-          messageContext:'通知内容',
-          messageTime:'2023月5月1日',
-          messageFrom:'管理员'
-        },
-        {
-          messageId:3,
-          messageTitle:'物资调拨信息提醒推送3',
-          messageContext:'通知内容',
-          messageTime:'2023月5月1日',
-          messageFrom:'管理员'
-        }
-      ]
+      messageData: []
+    }
+  },
+  methods: {
+    load() {
+      this.loading = true
+      this.request.get("/point/get_transfer").then((res)=>{
+        this.messageData = res.data.data.reverse()
+        console.log(this.messageData[1].transferId)
+        console.log(this.messageData[1].mainId)
+        console.log(this.messageData)
+      }).finally(()=>{
+      })
+      this.loading = false
     }
   }
 }
@@ -72,29 +63,32 @@ export default {
   padding: initial;
 }
 
-.header{
+.header {
   height: 60px;
   width: 100%;
 }
 
-.content{
+.content {
   width: 100%;
 }
 
-.content .message-content{
+.content .message-content {
   width: 100%;
   height: calc(100vh - 120px);
 }
-.content .message-item{
-  height: 120px;
+
+.content .message-item {
+  height: 90px;
   border-bottom: 3px solid #eee;
 }
-.content .message-img{
-  padding-top: 38px;
+
+.content .message-img {
+  padding-top: 26px;
   float: left;
   width: 25%;
 }
-.content .message-text{
+
+.content .message-text {
   padding-top: 20px;
   float: left;
   width: 75%;

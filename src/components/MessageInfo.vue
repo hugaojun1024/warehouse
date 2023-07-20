@@ -40,8 +40,8 @@ export default {
   created() {
     this.messageId = this.getParam('messageId')
     this.mainId = this.getParam('mainId')
-    console.log(this.messageId)
-    console.log(this.mainId)
+    // console.log(this.messageId)
+    // console.log(this.mainId)
     this.load()
   },
   methods: {
@@ -55,7 +55,7 @@ export default {
         }
       }).then(res => {
         this.messageInfo = res.data.data
-        console.log(this.messageInfo)
+        // console.log(this.messageInfo)
       })
     },
     getParam(par) {
